@@ -1,0 +1,9 @@
+fastapi>=0.115,<1
+uvicorn>=0.34,<1
+psycopg[binary]>=3.2,<4
+pypdf>=6.16.2,<7
+pymupdf>=1.26,<2
+reportlab>=4.4,<5
+pillow>=12,<13
+httpx>=0.28,<1
+boto3>=1.43,<2

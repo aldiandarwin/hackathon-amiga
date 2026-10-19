@@ -1,0 +1,17 @@
+{
+  "_catatan": "Set jalur panel, 14 Okt 2026. Soal ber-kode meniru tombol 'Tanya Robot Admin soal ini': teks isian panel (sop.js) dikirim bersama kode, lalu dirangkai 'Kode <kode>. <teks>' seperti app/sop_api.py. Kodenya 7 yang belum pernah diuji plus 3 dari unggahan data_customer_pt_amiga.pdf. Dua soal bebas memakai bahasa campur dan singkatan. Ditulis tanpa menyalin kartu, dan dijaga penjaga bocor bangun_korpus.py. Retrieval soal ber-kode pasti tinggi karena kode ada di kepala tiap potongan, jadi ujian sebenarnya review manual atas jawaban. Tanpa soal luar lingkup dan injeksi; dua gerbang itu tetap diuji set rag-uji.json.",
+  "pertanyaan": [
+    {"id": "K1", "jenis": "utama", "kode": "POSSIBLE_DUPLICATE", "teks": "Apa yang harus saya lakukan sekarang?", "harapan": ["EXC-POSSIBLE_DUPLICATE"]},
+    {"id": "K2", "jenis": "utama", "kode": "MISSING_EVIDENCE", "teks": "Apa yang harus saya lakukan sekarang?", "harapan": ["EXC-MISSING_EVIDENCE"]},
+    {"id": "K3", "jenis": "utama", "kode": "TOTAL_MISMATCH", "teks": "Apa yang harus saya lakukan sekarang?", "harapan": ["EXC-TOTAL_MISMATCH"]},
+    {"id": "K4", "jenis": "utama", "kode": "VISUAL_REVIEW_REQUIRED", "teks": "Apa yang harus saya lakukan sekarang?", "harapan": ["EXC-VISUAL_REVIEW_REQUIRED"]},
+    {"id": "K5", "jenis": "utama", "kode": "TAX_FAKTUR_NOT_FOUND", "teks": "Apa yang harus saya lakukan sekarang?", "harapan": ["EXC-TAX_FAKTUR_NOT_FOUND"]},
+    {"id": "K6", "jenis": "utama", "kode": "NPWP_MISMATCH", "teks": "Apa yang harus saya lakukan sekarang?", "harapan": ["EXC-NPWP_MISMATCH"]},
+    {"id": "K7", "jenis": "utama", "kode": "NPWP_CHECK", "teks": "Apa yang harus saya lakukan sekarang?", "harapan": ["EXC-NPWP_CHECK"]},
+    {"id": "K8", "jenis": "utama", "kode": "INSUFFICIENT_CALCULATION_EVIDENCE", "teks": "Apa yang harus saya lakukan sekarang?", "harapan": ["EXC-INSUFFICIENT_CALCULATION_EVIDENCE"]},
+    {"id": "K9", "jenis": "utama", "kode": "DUPLICATE_CHECK", "teks": "Apa yang harus saya lakukan sekarang?", "harapan": ["EXC-DUPLICATE_CHECK"]},
+    {"id": "K10", "jenis": "utama", "kode": "BANK_UNVERIFIED", "teks": "Apa yang harus saya lakukan sekarang?", "harapan": ["EXC-BANK_UNVERIFIED"]},
+    {"id": "B1", "jenis": "parafrase", "teks": "vendor ngirim invoice yg sama 2x, sistem kasih tanda apa & hrs gmn?", "harapan": ["EXC-POSSIBLE_DUPLICATE"]},
+    {"id": "B2", "jenis": "parafrase", "teks": "File yg aku upload ternyata customer list, bukan invoice. What should I do?", "harapan": ["EXC-MISSING_EVIDENCE", "ALUR-TINDAK-LANJUT-EKSTERNAL"]}
+  ]
+}

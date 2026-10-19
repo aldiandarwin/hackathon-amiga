@@ -1,0 +1,13 @@
+{"case_id": "amiga.robust.r01.v1", "pdf": "output/pdf/robustness-v1/r01.pdf", "pdf_sha256": "8a44ca57aca63687cf3b409b089f52e530c395721f694a775eab875124daf492", "invoice_page_count": 1, "split": "regression"}
+{"case_id": "amiga.robust.r02.v1", "pdf": "output/pdf/robustness-v1/r02.pdf", "pdf_sha256": "5be0b2297a8ba6fa940b761abfaafe326e9a474fd3c78ff499e8651e856b73ed", "invoice_page_count": 1, "split": "regression"}
+{"case_id": "amiga.robust.r03.v1", "pdf": "output/pdf/robustness-v1/r03.pdf", "pdf_sha256": "779361fdbdcf90fe6ae131638ec8f553feba793340b0b27d5d11565343f95c93", "invoice_page_count": 1, "split": "regression"}
+{"case_id": "amiga.robust.t01.v1", "pdf": "output/pdf/robustness-v1/t01.pdf", "pdf_sha256": "6fddf87c4032990bd2cc818f0f66261cabdf264e9fbbb553ff068e63a635c887", "invoice_page_count": 5, "split": "targeted"}
+{"case_id": "amiga.robust.t02.v1", "pdf": "output/pdf/robustness-v1/t02.pdf", "pdf_sha256": "f9809b56f457f9192eb95e2f0f8af6ecea342d83a7108f596c7ea95fe84d507e", "invoice_page_count": 1, "split": "targeted"}
+{"case_id": "amiga.robust.t03.v1", "pdf": "output/pdf/robustness-v1/t03.pdf", "pdf_sha256": "5b52705fb1afcd2788b4c88bfae86608dd020f5df52d8ff33bf485596322e6cb", "invoice_page_count": 1, "split": "targeted"}
+{"case_id": "amiga.robust.t04.v1", "pdf": "output/pdf/robustness-v1/t04.pdf", "pdf_sha256": "ae7d9aa735a656de5d2a9ce81ef258358e7960111d501f7acca79f3edb0ef5e5", "invoice_page_count": 1, "split": "targeted"}
+{"case_id": "amiga.robust.t05.v1", "pdf": "output/pdf/robustness-v1/t05.pdf", "pdf_sha256": "723e4acf7c8e9093fe7599bef5ab19e6d62989a290a63d6fcc2e440fad818203", "invoice_page_count": 1, "split": "targeted"}
+{"case_id": "amiga.robust.t06.v1", "pdf": "output/pdf/robustness-v1/t06.pdf", "pdf_sha256": "8bb5d9b46d441d9ad3a7fa7b25b094c3a90a3eea63153e0de9c7256c31ce341b", "invoice_page_count": 1, "split": "targeted"}
+{"case_id": "amiga.robust.t07.v1", "pdf": "output/pdf/robustness-v1/t07.pdf", "pdf_sha256": "59140276c8318c65c10601bf53c76d80862889e27f96004594e8698d33c5bb1a", "invoice_page_count": 1, "split": "targeted"}
+{"case_id": "amiga.robust.h01.v1", "pdf": "output/pdf/robustness-v1/h01.pdf", "pdf_sha256": "fa7e9b0409a617230b79a81b7a07233eb7b44d26a223e12a3303073b97f04f4e", "invoice_page_count": 2, "split": "holdout"}
+{"case_id": "amiga.robust.h02.v1", "pdf": "output/pdf/robustness-v1/h02.pdf", "pdf_sha256": "873cd7c5d24cebae7b11be1a9c0320cbba959aa8857c5dba2762707bc9c4c49e", "invoice_page_count": 1, "split": "holdout"}
+{"case_id": "amiga.robust.h03.v1", "pdf": "output/pdf/robustness-v1/h03.pdf", "pdf_sha256": "18719b5ff136a8b73686dfef18b4136dcbbe12ce0b0e8640993f29951ec16f4e", "invoice_page_count": 1, "split": "holdout"}

@@ -1,0 +1,7 @@
+# Keep binary evidence byte-exact on Windows checkouts with core.autocrlf=true.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.zip binary
+# Dataset manifests are hash-bound to saved extraction results; preserve exact bytes.
+*.jsonl binary

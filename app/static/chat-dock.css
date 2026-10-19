@@ -1,0 +1,172 @@
+/* Robot Admin chat, the same file on the Next.js dashboard and on the review page. Tokens come from app.css or
+   globals.css when present; the fallbacks keep the dock readable where neither loaded. Never redefine --amiga-*. */
+.amiga-chat{position:fixed;right:20px;bottom:20px;z-index:30;font-family:inherit;color:var(--amiga-navy,#324158)}
+.amiga-chat[hidden]{display:none}
+.amiga-chat-defs{position:absolute;width:0;height:0;overflow:hidden}
+/* On the review page the action bar owns the bottom edge; sit above it, where the SOP window also opens. */
+body.reviewing .amiga-chat{bottom:calc(var(--review-action-clearance,116px) + 12px)}
+/* There the clover in the action bar is Robot Admin's one door: its window lists the invoice's checks and opens this
+   chat. The approver has no clover (app.css hides it for .role-director), so their launcher stays. Selector as app.css. */
+body:not(.role-director):has(#workspace:not([hidden]) #review-screen:not([hidden]) #robot-dock:not([hidden])) .amiga-chat-launcher{display:none}
+.amiga-chat-icon{width:18px;height:18px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.amiga-chat-avatar{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:40px;height:40px;border-radius:50%;background:#fff}
+.amiga-chat-clover{width:30px;height:30px}
+.amiga-chat-petals{fill:var(--amiga-pink,#ff80b4);stroke:var(--amiga-pink-strong,#c2386f);stroke-width:1}
+.amiga-chat-ribbon{fill:var(--amiga-teal,#4497a1)}
+.amiga-chat-launcher{display:flex;align-items:center;gap:10px;margin:0 0 0 auto;padding:6px 20px 6px 6px;border:0;border-radius:999px;
+  background:var(--amiga-navy,#324158);color:#fff;font:inherit;font-size:15px;font-weight:700;cursor:pointer;
+  box-shadow:0 10px 28px rgba(31,42,58,.28);transition:background .15s,transform .15s}
+.amiga-chat-launcher:hover{background:var(--amiga-ink,#1f2a3a);transform:translateY(-1px)}
+.amiga-chat-launcher:focus-visible,.amiga-chat button:focus-visible,.amiga-chat a:focus-visible,.amiga-chat textarea:focus-visible{
+  outline:3px solid var(--amiga-pink-strong,#c2386f);outline-offset:2px}
+.amiga-chat-head button:focus-visible{outline-color:var(--amiga-pink,#ff80b4)}
+.amiga-chat.is-open .amiga-chat-launcher{display:none}
+.amiga-chat-panel{display:flex;flex-direction:column;width:min(420px,calc(100vw - 32px));height:min(640px,calc(100vh - 140px));
+  height:min(640px,calc(100dvh - 140px));background:#fff;border:1px solid var(--amiga-teal-line,#c5e0e3);border-radius:20px;
+  box-shadow:0 24px 60px rgba(31,42,58,.24);overflow:hidden}
+.amiga-chat-panel[hidden]{display:none}
+.amiga-chat-head{display:flex;align-items:center;gap:10px;padding:12px 12px 11px 14px;background:var(--amiga-navy,#324158);color:#fff;
+  border-bottom:3px solid var(--amiga-pink,#ff80b4)}
+.amiga-chat-head .amiga-chat-avatar{width:38px;height:38px}
+.amiga-chat-head .amiga-chat-clover{width:28px;height:28px}
+.amiga-chat-heading{flex:1;min-width:0}
+.amiga-chat-head h2{margin:0;font-size:16px;line-height:1.3;letter-spacing:0;color:#fff}
+.amiga-chat-head p{margin:1px 0 0;font-size:12.5px;line-height:1.4;color:#c5d0dd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.amiga-chat-tools{display:flex;gap:4px;flex-shrink:0}
+.amiga-chat-tools button{display:flex;align-items:center;justify-content:center;width:34px;height:34px;margin:0;padding:0;border:0;border-radius:50%;
+  background:rgba(255,255,255,.1);color:#fff;cursor:pointer;transition:background .15s}
+.amiga-chat-tools button:hover{background:rgba(255,255,255,.22)}
+.amiga-chat-notice{margin:0;padding:8px 16px;font-size:13px;line-height:1.5;background:var(--amiga-exception-bg,#fff1dd);
+  color:var(--amiga-exception-text,#8a4b08);border-bottom:1px solid var(--amiga-exception-line,#f0d2a4)}
+.amiga-chat-log,.amiga-chat-list{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;padding:16px 14px 12px;
+  background:var(--amiga-bg,#f6f8f8)}
+.amiga-chat-log{display:flex;flex-direction:column;gap:12px}
+.amiga-chat-log[hidden],.amiga-chat-list[hidden],.amiga-chat-notice[hidden],.amiga-chat-form[hidden]{display:none}
+.amiga-chat-welcome{display:flex;flex-direction:column;flex:1 0 auto;gap:12px}
+.amiga-chat-welcome p{margin:0;font-size:14px;line-height:1.6;color:var(--amiga-label,#44536a)}
+.amiga-chat-welcome .amiga-chat-hello{font-size:18px;font-weight:700;line-height:1.3;color:var(--amiga-ink,#1f2a3a)}
+/* The question sits right under the greeting; the longer line after it gets the usual breathing room. */
+.amiga-chat-welcome .amiga-chat-lead{margin-top:-8px;font-size:15px;font-weight:600;color:var(--amiga-ink,#1f2a3a)}
+.amiga-chat-welcome .amiga-chat-examples{margin-top:4px}
+.amiga-chat-examples{display:flex;flex-direction:column;gap:8px}
+.amiga-chat-examples button{display:flex;align-items:center;gap:10px;margin:0;padding:10px 12px;text-align:left;border:1px solid var(--amiga-teal-line,#c5e0e3);
+  border-radius:12px;background:#fff;color:var(--amiga-teal-strong,#2e6e76);font:inherit;font-size:14px;font-weight:600;cursor:pointer;
+  transition:background .15s,border-color .15s}
+.amiga-chat-examples button:hover{background:var(--amiga-teal-soft,#e3f0f1);border-color:var(--amiga-teal,#4497a1)}
+.amiga-chat-msg{padding:10px 14px;font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+.amiga-chat-msg.is-me{align-self:flex-end;max-width:82%;border-radius:16px 16px 4px 16px;background:var(--amiga-teal-strong,#2e6e76);color:#fff;
+  white-space:pre-wrap}
+.amiga-chat-msg.is-bot{align-self:flex-start;max-width:94%;border-radius:16px 16px 16px 4px;background:#fff;border:1px solid var(--amiga-line-soft,#eceaea);
+  box-shadow:0 1px 2px rgba(31,42,58,.06)}
+.amiga-chat-msg.is-typing{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--amiga-muted,#5b6779)}
+.amiga-chat-dots{display:inline-flex;gap:4px}
+.amiga-chat-dots span{width:7px;height:7px;border-radius:50%;background:var(--amiga-teal,#4497a1);animation:amiga-chat-dot 1.2s ease-in-out infinite}
+.amiga-chat-dots span:nth-child(2){animation-delay:.15s}
+.amiga-chat-dots span:nth-child(3){animation-delay:.3s}
+@keyframes amiga-chat-dot{0%,80%,100%{opacity:.35;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+.amiga-chat-msg p{margin:0 0 12px}
+.amiga-chat-msg p:last-child{margin-bottom:0}
+.amiga-chat-msg ol,.amiga-chat-msg ul{margin:0 0 12px;padding-left:20px}
+.amiga-chat-msg li{margin:0 0 6px}
+.amiga-chat-msg li::marker{color:var(--amiga-teal-strong,#2e6e76);font-weight:700}
+.amiga-chat-cite{display:inline-block;margin:0 2px;padding:0 6px;border-radius:999px;background:var(--amiga-mist,#eef4f2);
+  color:var(--amiga-teal-strong,#2e6e76);font-size:12px;font-weight:600;line-height:1.6}
+.amiga-chat-warn{padding:6px 10px;border-radius:8px;background:var(--amiga-exception-bg,#fff1dd);color:var(--amiga-exception-text,#8a4b08);font-size:13px}
+.amiga-chat-error{color:var(--amiga-rejected-text,#b0263f)}
+.amiga-chat-msg.amiga-chat-error{background:var(--amiga-rejected-bg,#fdecef);border-color:var(--amiga-rejected-line,#f2c2cc)}
+.amiga-chat-cards{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.amiga-chat-card{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px solid var(--amiga-line,#dad8d8);border-radius:12px;
+  background:#fff;color:inherit;text-decoration:none;transition:border-color .15s,background .15s}
+a.amiga-chat-card:hover{border-color:var(--amiga-teal,#4497a1);background:var(--amiga-teal-soft,#e3f0f1);text-decoration:none}
+.amiga-chat-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.amiga-chat-card-top strong{min-width:0;font-size:14px;color:var(--amiga-ink,#1f2a3a);overflow-wrap:anywhere}
+.amiga-chat-badge{flex-shrink:0;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:700;line-height:1.5;
+  background:var(--amiga-processing-bg,#e8eef6);color:var(--amiga-processing-text,#3b5878)}
+.amiga-chat-badge.is-ready{background:var(--amiga-ready-bg,#e3f0f1);color:var(--amiga-ready-text,#2e6e76)}
+.amiga-chat-badge.is-exception{background:var(--amiga-exception-bg,#fff1dd);color:var(--amiga-exception-text,#8a4b08)}
+.amiga-chat-badge.is-rejected{background:var(--amiga-rejected-bg,#fdecef);color:var(--amiga-rejected-text,#b0263f)}
+.amiga-chat-badge.is-done{background:var(--amiga-teal-strong,#2e6e76);color:#fff}
+.amiga-chat-card-vendor{font-size:14px;font-weight:600;color:var(--amiga-navy,#324158)}
+.amiga-chat-card-meta{font-size:12px;color:var(--amiga-muted,#5b6779)}
+.amiga-chat-card-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px}
+.amiga-chat-card-total{font-size:15px;font-weight:700;color:var(--amiga-teal-strong,#2e6e76);font-variant-numeric:tabular-nums}
+.amiga-chat-card-go{display:inline-flex;align-items:center;gap:4px;margin-left:auto;font-size:12px;font-weight:700;color:var(--amiga-teal-strong,#2e6e76)}
+.amiga-chat-card-go .amiga-chat-icon{width:14px;height:14px}
+.amiga-chat-refs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:10px;font-size:12px;color:var(--amiga-muted,#5b6779)}
+.amiga-chat-sop{margin:0;padding:3px 10px;border:1px solid var(--amiga-teal-line,#c5e0e3);border-radius:999px;background:#fff;
+  color:var(--amiga-teal-strong,#2e6e76);font:inherit;font-size:12px;font-weight:600}
+button.amiga-chat-sop{cursor:pointer}
+button.amiga-chat-sop:hover{background:var(--amiga-teal-soft,#e3f0f1)}
+.amiga-chat-list-head{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.amiga-chat-list-head h3{margin:0;font-size:15px;line-height:1.3;color:var(--amiga-ink,#1f2a3a)}
+.amiga-chat-back{display:inline-flex;align-items:center;gap:4px;margin:0;padding:5px 12px 5px 8px;border:1px solid var(--amiga-teal-line,#c5e0e3);
+  border-radius:999px;background:#fff;color:var(--amiga-teal-strong,#2e6e76);font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.amiga-chat-back:hover{background:var(--amiga-teal-soft,#e3f0f1)}
+.amiga-chat-back .amiga-chat-icon{width:16px;height:16px}
+.amiga-chat-thread{display:flex;align-items:center;gap:10px;width:100%;margin:0 0 8px;padding:10px 12px;text-align:left;
+  border:1px solid var(--amiga-line,#dad8d8);border-radius:12px;background:#fff;color:inherit;font:inherit;cursor:pointer}
+.amiga-chat-thread:hover{border-color:var(--amiga-teal,#4497a1);background:var(--amiga-teal-soft,#e3f0f1)}
+.amiga-chat-thread>.amiga-chat-icon{color:var(--amiga-teal-strong,#2e6e76)}
+.amiga-chat-thread-text{display:flex;flex-direction:column;gap:2px;min-width:0}
+.amiga-chat-thread strong{font-size:14px;color:var(--amiga-ink,#1f2a3a);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.amiga-chat-thread-text span{font-size:12px;color:var(--amiga-muted,#5b6779)}
+.amiga-chat-muted{margin:0 0 12px;font-size:14px;color:var(--amiga-muted,#5b6779)}
+.amiga-chat-form{display:flex;gap:8px;align-items:flex-end;padding:10px 12px 12px;border-top:1px solid var(--amiga-line-soft,#eceaea);background:#fff}
+.amiga-chat-form textarea{flex:1;min-width:0;min-height:42px;max-height:132px;margin:0;padding:10px 16px;resize:none;field-sizing:content;
+  border:1px solid var(--amiga-input-line,#7e8a9b);border-radius:21px;background:#fff;font:inherit;font-size:14px;line-height:1.5;
+  color:var(--amiga-ink,#1f2a3a)}
+.amiga-chat-form textarea::placeholder{color:var(--amiga-muted,#5b6779)}
+.amiga-chat-form textarea:focus{border-color:var(--amiga-teal,#4497a1)}
+/* The field holds focus after every answer, so its ring is the quiet teal one (3.4:1 on white), not the pink. */
+.amiga-chat-form textarea:focus-visible{outline:2px solid var(--amiga-teal,#4497a1);outline-offset:1px}
+.amiga-chat-form button{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:42px;height:42px;margin:0;padding:0;border:0;
+  border-radius:50%;background:var(--amiga-pink,#ff80b4);color:var(--amiga-ink,#1f2a3a);cursor:pointer;transition:background .15s}
+.amiga-chat-form button:hover{background:var(--amiga-pink-hover,#f56aa5)}
+.amiga-chat-form button:disabled{opacity:.55;cursor:wait}
+.amiga-chat-form .amiga-chat-icon{width:20px;height:20px}
+.amiga-chat-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Review page only: the invoice's open checks, and the SOP card each one opens without AI. */
+.amiga-chat-kendala{flex:0 0 auto;margin:0;padding:9px 16px;border:0;border-bottom:1px solid var(--amiga-teal-line,#c5e0e3);
+  background:var(--amiga-pink-soft,#fff0f6);color:var(--amiga-ink,#1f2a3a);font:inherit;font-size:13px;font-weight:700;text-align:left;cursor:pointer}
+.amiga-chat-kendala[hidden]{display:none}
+.amiga-chat-kendala:hover{background:#ffe3ef}
+.amiga-chat-checks{display:flex;flex-direction:column;gap:8px}
+.amiga-chat-msg .amiga-chat-checks{margin-top:10px}
+.amiga-chat-checks button{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0;padding:10px 12px;text-align:left;
+  border:1px solid var(--amiga-line,#dad8d8);border-left:4px solid var(--amiga-pink,#ff80b4);border-radius:12px;background:#fff;
+  color:var(--amiga-ink,#1f2a3a);font:inherit;font-size:14px;font-weight:600;line-height:1.45;cursor:pointer;transition:border-color .15s,background .15s}
+.amiga-chat-checks button::after{content:'\2192';flex-shrink:0;color:var(--amiga-teal-strong,#2e6e76);font-weight:700}
+.amiga-chat-checks button:hover{border-color:var(--amiga-teal,#4497a1);border-left-color:var(--amiga-pink,#ff80b4);background:var(--amiga-teal-soft,#e3f0f1)}
+/* Only kendala hold the decision and keep the pink edge; source checks and notes take the calmer teal. */
+.amiga-chat-checks .amiga-chat-checks-group{margin:6px 0 -2px;font-size:12px;font-weight:700;color:var(--amiga-muted,#5b6779)}
+.amiga-chat-checks .amiga-chat-checks-group:first-child{margin-top:0}
+.amiga-chat-checks button.is-cocokkan,.amiga-chat-checks button.is-catatan,
+.amiga-chat-checks button.is-cocokkan:hover,.amiga-chat-checks button.is-catatan:hover{border-left-color:var(--amiga-teal,#4497a1)}
+.amiga-chat-welcome .amiga-chat-or{margin-top:4px;font-weight:600;color:var(--amiga-ink,#1f2a3a)}
+.amiga-chat-msg.is-sop{border-top:4px solid var(--amiga-teal,#4497a1)}
+.amiga-chat-msg .amiga-chat-sop-title{margin:0;font-size:15px;font-weight:700;line-height:1.4;color:var(--amiga-ink,#1f2a3a)}
+.amiga-chat-sop-id{display:block;margin:2px 0 4px;font-size:12px;color:var(--amiga-muted,#5b6779)}
+.amiga-chat-sop-body .sop-part{margin-top:10px}
+.amiga-chat-sop-body h5{margin:0 0 4px;font-size:13px;font-weight:700;color:var(--amiga-teal-strong,#2e6e76)}
+.amiga-chat-msg .amiga-chat-sop-body p{margin:0 0 6px}
+.amiga-chat-sop-body .sop-more{margin-top:10px;padding-top:8px;border-top:1px dashed var(--amiga-line,#dad8d8)}
+.amiga-chat-sop-body .sop-more summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--amiga-teal-strong,#2e6e76)}
+.amiga-chat-sop-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.amiga-chat-sop-actions button{margin:0;padding:7px 12px;border:1.5px solid var(--amiga-teal,#4497a1);border-radius:10px;background:#fff;
+  color:var(--amiga-teal-strong,#2e6e76);font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.amiga-chat-sop-actions button:hover{background:var(--amiga-teal-soft,#e3f0f1)}
+@media(max-width:720px){
+  .amiga-chat{right:12px;bottom:12px}
+  .amiga-chat-launcher{padding:5px}
+  .amiga-chat-launcher-text{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .amiga-chat-launcher .amiga-chat-avatar{width:46px;height:46px}
+  .amiga-chat-launcher .amiga-chat-clover{width:34px;height:34px}
+  .amiga-chat.is-open{left:0;right:0;bottom:0}
+  body.reviewing .amiga-chat.is-open{bottom:0}
+  .amiga-chat-panel{width:auto;height:85vh;height:85dvh;border-width:1px 0 0;border-radius:20px 20px 0 0}
+}
+@media(prefers-reduced-motion:reduce){
+  .amiga-chat-launcher,.amiga-chat-launcher:hover{transition:none;transform:none}
+  .amiga-chat-dots span{animation:none;opacity:.6}
+}
+@media print{.amiga-chat{display:none}}

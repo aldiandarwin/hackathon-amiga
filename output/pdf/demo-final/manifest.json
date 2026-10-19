@@ -1,0 +1,311 @@
+[
+  {
+    "pdf": "output/pdf/demo-final/inv-demo-002.pdf",
+    "sha256": "027f2dfa1b9cce61373900e134ccfd1d35c7a84c492e8113530ad08b4a0981e5",
+    "expected_invoice": {
+      "vendor_name": "PT Contoh Demo",
+      "invoice_number": "INV-DEMO-002",
+      "invoice_date": "2026-10-14",
+      "currency": "IDR",
+      "line_items": [
+        {
+          "description": "Jasa desain materi promosi",
+          "quantity": "1",
+          "unit_price": "2000000.00",
+          "stated_line_total": "2000000.00"
+        },
+        {
+          "description": "Jasa pengelolaan iklan digital",
+          "quantity": "1",
+          "unit_price": "1500000.00",
+          "stated_line_total": "1500000.00"
+        },
+        {
+          "description": "Jasa penulisan konten",
+          "quantity": "2",
+          "unit_price": "250000.00",
+          "stated_line_total": "500000.00"
+        }
+      ],
+      "stated_subtotal": "4000000.00",
+      "stated_discount_total": "0.00",
+      "stated_tax_total": "440000.00",
+      "stated_total": "4440000.00",
+      "payment": {
+        "bank_name": "Bank Contoh",
+        "account_holder": "PT Contoh Demo",
+        "account_number": "00123456"
+      }
+    }
+  },
+  {
+    "pdf": "output/pdf/demo-final/inv-demo-003.pdf",
+    "sha256": "c36c709d0afa60436177db85a834e49827faf0d1137c5aa269990707d117c9e5",
+    "expected_invoice": {
+      "vendor_name": "PT Contoh Demo",
+      "invoice_number": "INV-DEMO-003",
+      "invoice_date": "2026-10-14",
+      "currency": "IDR",
+      "line_items": [
+        {
+          "description": "Jasa desain materi promosi",
+          "quantity": "1",
+          "unit_price": "2000000.00",
+          "stated_line_total": "2000000.00"
+        },
+        {
+          "description": "Jasa pengelolaan iklan digital",
+          "quantity": "1",
+          "unit_price": "1500000.00",
+          "stated_line_total": "1500000.00"
+        },
+        {
+          "description": "Jasa penulisan konten",
+          "quantity": "2",
+          "unit_price": "250000.00",
+          "stated_line_total": "500000.00"
+        }
+      ],
+      "stated_subtotal": "4000000.00",
+      "stated_discount_total": "0.00",
+      "stated_tax_total": "440000.00",
+      "stated_total": "4440000.00",
+      "payment": {
+        "bank_name": "Bank Contoh",
+        "account_holder": "PT Contoh Demo",
+        "account_number": "00123456"
+      }
+    }
+  },
+  {
+    "pdf": "output/pdf/demo-final/inv-demo-004.pdf",
+    "sha256": "8978997860ae0a06210d85c8b1ada2688958c762e40d57e70add726855d4e003",
+    "expected_invoice": {
+      "vendor_name": "PT Contoh Demo",
+      "invoice_number": "INV-DEMO-004",
+      "invoice_date": "2026-10-14",
+      "currency": "IDR",
+      "line_items": [
+        {
+          "description": "Jasa desain materi promosi",
+          "quantity": "1",
+          "unit_price": "2000000.00",
+          "stated_line_total": "2000000.00"
+        },
+        {
+          "description": "Jasa pengelolaan iklan digital",
+          "quantity": "1",
+          "unit_price": "1500000.00",
+          "stated_line_total": "1500000.00"
+        },
+        {
+          "description": "Jasa penulisan konten",
+          "quantity": "2",
+          "unit_price": "250000.00",
+          "stated_line_total": "500000.00"
+        }
+      ],
+      "stated_subtotal": "4000000.00",
+      "stated_discount_total": "0.00",
+      "stated_tax_total": "440000.00",
+      "stated_total": "4440000.00",
+      "payment": {
+        "bank_name": "Bank Contoh",
+        "account_holder": "PT Contoh Demo",
+        "account_number": "00123456"
+      }
+    }
+  },
+  {
+    "file": "output/pdf/demo-final/inv-demo-005.pdf",
+    "media_type": "application/pdf",
+    "sha256": "14cc123e45bf4d15cd5b570d92d61aa2f531d810dfc1827b7a71b89f9e9bbc9d",
+    "tax_preset": "PPN 11% + PPh 23 2%",
+    "expected_invoice": {
+      "vendor_name": "PT Contoh Demo",
+      "invoice_number": "INV-DEMO-005",
+      "invoice_date": "2026-10-14",
+      "currency": "IDR",
+      "line_items": [
+        {
+          "description": "Jasa desain materi promosi",
+          "quantity": "1",
+          "unit_price": "2000000.00",
+          "stated_line_total": "2000000.00"
+        },
+        {
+          "description": "Jasa pengelolaan iklan digital",
+          "quantity": "1",
+          "unit_price": "1500000.00",
+          "stated_line_total": "1500000.00"
+        },
+        {
+          "description": "Jasa penulisan konten",
+          "quantity": "2",
+          "unit_price": "250000.00",
+          "stated_line_total": "500000.00"
+        }
+      ],
+      "stated_subtotal": "4000000.00",
+      "stated_discount_total": "0.00",
+      "stated_tax_total": "440000.00",
+      "stated_total": "4440000.00",
+      "payment": {
+        "bank_name": "Bank Contoh",
+        "account_holder": "PT Contoh Demo",
+        "account_number": "00123456"
+      },
+      "vendor_npwp": "99.123.456.7-012.000",
+      "buyer_name": "PT Arunika Sejahtera",
+      "buyer_npwp": "99.765.432.1-098.000",
+      "po_number": "PO-ARS-2026-005",
+      "due_date": "2026-10-28",
+      "faktur_number": "010.000-26.00000005",
+      "faktur_date": "2026-10-14"
+    }
+  },
+  {
+    "file": "output/pdf/demo-final/inv-demo-006.jpg",
+    "media_type": "image/jpeg",
+    "sha256": "6bfea4556ce6e85bbda1e8a7ea4408582a38c48c37b8c1433d9a7cadbf8c809b",
+    "tax_preset": "PPh 23 2% saja",
+    "expected_invoice": {
+      "vendor_name": "PT Contoh Demo",
+      "invoice_number": "INV-DEMO-006",
+      "invoice_date": "2026-10-14",
+      "currency": "IDR",
+      "line_items": [
+        {
+          "description": "Jasa desain materi promosi",
+          "quantity": "1",
+          "unit_price": "2000000.00",
+          "stated_line_total": "2000000.00"
+        },
+        {
+          "description": "Jasa pengelolaan iklan digital",
+          "quantity": "1",
+          "unit_price": "1500000.00",
+          "stated_line_total": "1500000.00"
+        },
+        {
+          "description": "Jasa penulisan konten",
+          "quantity": "2",
+          "unit_price": "250000.00",
+          "stated_line_total": "500000.00"
+        }
+      ],
+      "stated_subtotal": "4000000.00",
+      "stated_discount_total": "0.00",
+      "stated_tax_total": null,
+      "stated_total": "4000000.00",
+      "payment": {
+        "bank_name": "Bank Contoh",
+        "account_holder": "PT Contoh Demo",
+        "account_number": "00123456"
+      },
+      "vendor_npwp": "99.123.456.7-012.000",
+      "buyer_name": "PT Arunika Sejahtera",
+      "buyer_npwp": "99.765.432.1-098.000",
+      "po_number": "PO-ARS-2026-006",
+      "due_date": "2026-10-28",
+      "faktur_number": null,
+      "faktur_date": null
+    }
+  },
+  {
+    "file": "output/pdf/demo-final/inv-demo-007.pdf",
+    "media_type": "application/pdf",
+    "sha256": "a351f82f63ed71bb89c5111e8b1ed47b6b7d2ee4651a72913ed098758a282322",
+    "tax_preset": "PPN 11% + PPh 23 2%",
+    "expected_invoice": {
+      "vendor_name": "PT Contoh Demo",
+      "invoice_number": "INV-DEMO-007",
+      "invoice_date": "2026-10-14",
+      "currency": "IDR",
+      "line_items": [
+        {
+          "description": "Jasa desain materi promosi",
+          "quantity": "1",
+          "unit_price": "2000000.00",
+          "stated_line_total": "2000000.00"
+        },
+        {
+          "description": "Jasa pengelolaan iklan digital",
+          "quantity": "1",
+          "unit_price": "1500000.00",
+          "stated_line_total": "1500000.00"
+        },
+        {
+          "description": "Jasa penulisan konten",
+          "quantity": "2",
+          "unit_price": "250000.00",
+          "stated_line_total": "500000.00"
+        }
+      ],
+      "stated_subtotal": "4000000.00",
+      "stated_discount_total": "0.00",
+      "stated_tax_total": "440000.00",
+      "stated_total": "4440000.00",
+      "payment": {
+        "bank_name": "Bank Contoh",
+        "account_holder": "PT Contoh Demo",
+        "account_number": "00123456"
+      },
+      "vendor_npwp": "99.123.456.7-012.000",
+      "buyer_name": "PT Arunika Sejahtera",
+      "buyer_npwp": "99.765.432.1-098.000",
+      "po_number": "PO-ARS-2026-007",
+      "due_date": "2026-10-28",
+      "faktur_number": "010.000-26.00000007",
+      "faktur_date": "2026-10-14"
+    }
+  },
+  {
+    "file": "output/pdf/demo-final/inv-demo-008.png",
+    "media_type": "image/png",
+    "sha256": "29a71fd7564ee3a90635d31186ebaf0e226c9c3de8dd4e2f9b7eacef5d7c8cbb",
+    "tax_preset": "PPh 23 2% saja",
+    "expected_invoice": {
+      "vendor_name": "PT Contoh Demo",
+      "invoice_number": "INV-DEMO-008",
+      "invoice_date": "2026-10-14",
+      "currency": "IDR",
+      "line_items": [
+        {
+          "description": "Jasa desain materi promosi",
+          "quantity": "1",
+          "unit_price": "2000000.00",
+          "stated_line_total": "2000000.00"
+        },
+        {
+          "description": "Jasa pengelolaan iklan digital",
+          "quantity": "1",
+          "unit_price": "1500000.00",
+          "stated_line_total": "1500000.00"
+        },
+        {
+          "description": "Jasa penulisan konten",
+          "quantity": "2",
+          "unit_price": "250000.00",
+          "stated_line_total": "500000.00"
+        }
+      ],
+      "stated_subtotal": "4000000.00",
+      "stated_discount_total": "0.00",
+      "stated_tax_total": null,
+      "stated_total": "4000000.00",
+      "payment": {
+        "bank_name": "Bank Contoh",
+        "account_holder": "PT Contoh Demo",
+        "account_number": "00123456"
+      },
+      "vendor_npwp": "99.123.456.7-012.000",
+      "buyer_name": "PT Arunika Sejahtera",
+      "buyer_npwp": "99.765.432.1-098.000",
+      "po_number": "PO-ARS-2026-008",
+      "due_date": "2026-10-28",
+      "faktur_number": null,
+      "faktur_date": null
+    }
+  }
+]

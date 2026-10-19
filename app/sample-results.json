@@ -1,0 +1,560 @@
+{
+  "normal": {
+    "invoice": {
+      "vendor_id": null,
+      "vendor_name": "PT Contoh Demo",
+      "invoice_number": "INV-DEMO-001",
+      "invoice_date": "2026-10-12",
+      "due_date": null,
+      "currency": "IDR",
+      "line_items": [
+        {
+          "line_number": 1,
+          "description": "Barang contoh A",
+          "quantity": "2",
+          "unit_price": "150000.00",
+          "stated_line_total": "300000.00"
+        },
+        {
+          "line_number": 2,
+          "description": "Barang contoh B",
+          "quantity": "1",
+          "unit_price": "125000.00",
+          "stated_line_total": "125000.00"
+        },
+        {
+          "line_number": 3,
+          "description": "Barang contoh C",
+          "quantity": "3",
+          "unit_price": "25000.00",
+          "stated_line_total": "75000.00"
+        }
+      ],
+      "stated_subtotal": "500000.00",
+      "stated_discount_total": "0.00",
+      "stated_tax_total": "0.00",
+      "stated_total": "500000.00",
+      "payment": {
+        "bank_name": "Bank Contoh",
+        "account_holder": "PT Contoh Demo",
+        "account_number": "00123456"
+      }
+    },
+    "source_evidence": {
+      "vendor_name": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "PT Contoh Demo",
+        "bbox": null
+      },
+      "invoice_number": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "INV-DEMO-001",
+        "bbox": null
+      },
+      "invoice_date": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "2026-10-12",
+        "bbox": null
+      },
+      "currency": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "IDR",
+        "bbox": null
+      },
+      "line_items[0].description": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "Barang contoh A",
+        "bbox": null
+      },
+      "line_items[0].quantity": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "2",
+        "bbox": null
+      },
+      "line_items[0].unit_price": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "150.000,00",
+        "bbox": null
+      },
+      "line_items[0].stated_line_total": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "300.000,00",
+        "bbox": null
+      },
+      "line_items[1].description": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "Barang contoh B",
+        "bbox": null
+      },
+      "line_items[1].quantity": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "1",
+        "bbox": null
+      },
+      "line_items[1].unit_price": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "125.000,00",
+        "bbox": null
+      },
+      "line_items[1].stated_line_total": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "125.000,00",
+        "bbox": null
+      },
+      "line_items[2].description": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "Barang contoh C",
+        "bbox": null
+      },
+      "line_items[2].quantity": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "3",
+        "bbox": null
+      },
+      "line_items[2].unit_price": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "25.000,00",
+        "bbox": null
+      },
+      "line_items[2].stated_line_total": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "75.000,00",
+        "bbox": null
+      },
+      "stated_subtotal": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "500.000,00",
+        "bbox": null
+      },
+      "stated_discount_total": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "0,00",
+        "bbox": null
+      },
+      "stated_tax_total": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "0,00",
+        "bbox": null
+      },
+      "stated_total": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "500.000,00",
+        "bbox": null
+      },
+      "payment.bank_name": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "Bank Contoh",
+        "bbox": null
+      },
+      "payment.account_holder": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "PT Contoh Demo",
+        "bbox": null
+      },
+      "payment.account_number": {
+        "document_id": "doc_normal",
+        "page": 1,
+        "raw_value": "00123456",
+        "bbox": null
+      }
+    },
+    "run_id": "9e2cd35e-d68c-470f-b184-33452b3623ca",
+    "dataset_sha256": "9813743da5b5b5ad044cb517e431acf0b5e3da4bd4baa440f775da78bea4840e",
+    "provenance": {
+      "type": "SYNTHETIC_SAVED_OPENAI_RESPONSE",
+      "original_result_sha256": "7d8e290ba766b8ca1a8b8f05fb4d9d0a34762d5f122e0d08c270f2e3691c23c0"
+    }
+  },
+  "missing_bank": {
+    "invoice": {
+      "vendor_id": null,
+      "vendor_name": "PT Contoh Demo",
+      "invoice_number": "INV-DEMO-001",
+      "invoice_date": "2026-10-12",
+      "due_date": null,
+      "currency": "IDR",
+      "line_items": [
+        {
+          "line_number": 1,
+          "description": "Barang contoh A",
+          "quantity": "2",
+          "unit_price": "150000.00",
+          "stated_line_total": "300000.00"
+        },
+        {
+          "line_number": 2,
+          "description": "Barang contoh B",
+          "quantity": "1",
+          "unit_price": "125000.00",
+          "stated_line_total": "125000.00"
+        },
+        {
+          "line_number": 3,
+          "description": "Barang contoh C",
+          "quantity": "3",
+          "unit_price": "25000.00",
+          "stated_line_total": "75000.00"
+        }
+      ],
+      "stated_subtotal": "500000.00",
+      "stated_discount_total": "0.00",
+      "stated_tax_total": "0.00",
+      "stated_total": "500000.00",
+      "payment": {
+        "bank_name": "Bank Contoh",
+        "account_holder": "PT Contoh Demo",
+        "account_number": null
+      }
+    },
+    "source_evidence": {
+      "vendor_name": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "PT Contoh Demo",
+        "bbox": null
+      },
+      "invoice_number": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "INV-DEMO-001",
+        "bbox": null
+      },
+      "invoice_date": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "2026-10-12",
+        "bbox": null
+      },
+      "currency": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "IDR",
+        "bbox": null
+      },
+      "line_items[0].description": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "Barang contoh A",
+        "bbox": null
+      },
+      "line_items[0].quantity": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "2",
+        "bbox": null
+      },
+      "line_items[0].unit_price": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "150.000,00",
+        "bbox": null
+      },
+      "line_items[0].stated_line_total": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "300.000,00",
+        "bbox": null
+      },
+      "line_items[1].description": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "Barang contoh B",
+        "bbox": null
+      },
+      "line_items[1].quantity": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "1",
+        "bbox": null
+      },
+      "line_items[1].unit_price": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "125.000,00",
+        "bbox": null
+      },
+      "line_items[1].stated_line_total": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "125.000,00",
+        "bbox": null
+      },
+      "line_items[2].description": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "Barang contoh C",
+        "bbox": null
+      },
+      "line_items[2].quantity": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "3",
+        "bbox": null
+      },
+      "line_items[2].unit_price": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "25.000,00",
+        "bbox": null
+      },
+      "line_items[2].stated_line_total": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "75.000,00",
+        "bbox": null
+      },
+      "stated_subtotal": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "500.000,00",
+        "bbox": null
+      },
+      "stated_discount_total": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "0,00",
+        "bbox": null
+      },
+      "stated_tax_total": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "0,00",
+        "bbox": null
+      },
+      "stated_total": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "500.000,00",
+        "bbox": null
+      },
+      "payment.bank_name": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "Bank Contoh",
+        "bbox": null
+      },
+      "payment.account_holder": {
+        "document_id": "doc_missing_bank",
+        "page": 1,
+        "raw_value": "PT Contoh Demo",
+        "bbox": null
+      }
+    },
+    "run_id": "efb755c3-c8f6-46ad-b066-649cd1464c82",
+    "dataset_sha256": "9813743da5b5b5ad044cb517e431acf0b5e3da4bd4baa440f775da78bea4840e",
+    "provenance": {
+      "type": "SYNTHETIC_SAVED_OPENAI_RESPONSE",
+      "original_result_sha256": "6f35be11c5769b9fd3f8020ad17756bcd4d8faeac33f965644b3dc2fb161e2c3"
+    }
+  },
+  "wrong_total": {
+    "invoice": {
+      "vendor_id": null,
+      "vendor_name": "PT Contoh Demo",
+      "invoice_number": "INV-DEMO-001",
+      "invoice_date": "2026-10-12",
+      "due_date": null,
+      "currency": "IDR",
+      "line_items": [
+        {
+          "line_number": 1,
+          "description": "Barang contoh A",
+          "quantity": "2",
+          "unit_price": "150000.00",
+          "stated_line_total": "300000.00"
+        },
+        {
+          "line_number": 2,
+          "description": "Barang contoh B",
+          "quantity": "1",
+          "unit_price": "125000.00",
+          "stated_line_total": "125000.00"
+        },
+        {
+          "line_number": 3,
+          "description": "Barang contoh C",
+          "quantity": "3",
+          "unit_price": "25000.00",
+          "stated_line_total": "75000.00"
+        }
+      ],
+      "stated_subtotal": "500000.00",
+      "stated_discount_total": "0.00",
+      "stated_tax_total": "0.00",
+      "stated_total": "510000.00",
+      "payment": {
+        "bank_name": "Bank Contoh",
+        "account_holder": "PT Contoh Demo",
+        "account_number": "00123456"
+      }
+    },
+    "source_evidence": {
+      "vendor_name": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "PT Contoh Demo",
+        "bbox": null
+      },
+      "invoice_number": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "INV-DEMO-001",
+        "bbox": null
+      },
+      "invoice_date": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "2026-10-12",
+        "bbox": null
+      },
+      "currency": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "IDR",
+        "bbox": null
+      },
+      "line_items[0].description": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "Barang contoh A",
+        "bbox": null
+      },
+      "line_items[0].quantity": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "2",
+        "bbox": null
+      },
+      "line_items[0].unit_price": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "150.000,00",
+        "bbox": null
+      },
+      "line_items[0].stated_line_total": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "300.000,00",
+        "bbox": null
+      },
+      "line_items[1].description": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "Barang contoh B",
+        "bbox": null
+      },
+      "line_items[1].quantity": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "1",
+        "bbox": null
+      },
+      "line_items[1].unit_price": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "125.000,00",
+        "bbox": null
+      },
+      "line_items[1].stated_line_total": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "125.000,00",
+        "bbox": null
+      },
+      "line_items[2].description": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "Barang contoh C",
+        "bbox": null
+      },
+      "line_items[2].quantity": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "3",
+        "bbox": null
+      },
+      "line_items[2].unit_price": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "25.000,00",
+        "bbox": null
+      },
+      "line_items[2].stated_line_total": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "75.000,00",
+        "bbox": null
+      },
+      "stated_subtotal": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "500.000,00",
+        "bbox": null
+      },
+      "stated_discount_total": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "0,00",
+        "bbox": null
+      },
+      "stated_tax_total": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "0,00",
+        "bbox": null
+      },
+      "stated_total": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "510.000,00",
+        "bbox": null
+      },
+      "payment.bank_name": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "Bank Contoh",
+        "bbox": null
+      },
+      "payment.account_holder": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "PT Contoh Demo",
+        "bbox": null
+      },
+      "payment.account_number": {
+        "document_id": "doc_wrong_total",
+        "page": 1,
+        "raw_value": "00123456",
+        "bbox": null
+      }
+    },
+    "run_id": "c0e4612e-8a91-404c-a5d8-9fcf546a99b4",
+    "dataset_sha256": "9813743da5b5b5ad044cb517e431acf0b5e3da4bd4baa440f775da78bea4840e",
+    "provenance": {
+      "type": "SYNTHETIC_SAVED_OPENAI_RESPONSE",
+      "original_result_sha256": "9e632ee543d85f13a3bc29024bc454431b3c8e7b205cd26a4a8f904b58d37635"
+    }
+  }
+}

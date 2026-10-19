@@ -1,0 +1,9 @@
+{
+  "dataset_version": "invoice-robustness.v1",
+  "dataset_sha256": "abdff612e05bbf9a623dd6321635b7edca2e65a81501c263ad35dce5050eaf49",
+  "builder_sha256": "c0e7e42a105b981e4952c402ab7bf4d3823a86b60e65a85f98d6b34b54113852",
+  "cases_jsonl_sha256": "0b28035efdeb2703b3ac3dfc633c8c758a552d2f6f5e7aa5c05d3c477cbae2a7",
+  "pack_sha256": "4d14c8d7db628d4feb6d4d27cf96f2b199ea4a7d1d8b5d37226c1ee385dd9d73",
+  "case_count": 13,
+  "invoice_pages": 18
+}

@@ -1,0 +1,30 @@
+# Local credentials and persistent cost accounting must never be published.
+.env
+.env.*
+!.env.example
+aws kelompok 9.txt
+prototype/.local/
+prototype/output/live/
+prototype/output/test-runtime/
+__pycache__/
+.venv/
+.appdata/
+app/test-output/
+tmp/
+knowledge-base/dist/
+knowledge-base/.state/
+.claude/
+
+# Local-only browser QA harness; no credentials or runtime artifacts in Git.
+app/static/.local-qa/
+
+# Private connections, cloud state and local output
+configuration.json
+knowledge-base/kb-config.json
+graphify-out/
+node_modules/
+*.log
+*.pem
+*.key
+output/repo-audit/
+output/deployment/

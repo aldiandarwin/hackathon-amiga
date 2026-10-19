@@ -1,0 +1,88 @@
+{
+  "generated_at_utc": "2026-10-12T15:42:17.643843+00:00",
+  "scope": "LIVE_OPENAI_SYNTHETIC_DIGITAL_PDF_SMOKE",
+  "verdict": "CONDITIONAL",
+  "verdict_reason": "Three synthetic smoke cases pass; production accuracy and scan handling untested.",
+  "case_count": 3,
+  "passed": 3,
+  "business_field_checks": 72,
+  "budget": {
+    "scope": "AMIGA_LOCAL_HARNESS_ONLY",
+    "user_ceiling_usd": "10.00",
+    "operational_ceiling_usd": "8",
+    "attempt_count": 3,
+    "reserved_authorization_usd": "3",
+    "remaining_authorization_usd": "5",
+    "usage_cost_upper_estimate_usd": "0.001485875",
+    "unknown_cost_attempts": 0,
+    "states": [
+      "COMPLETED",
+      "COMPLETED",
+      "COMPLETED"
+    ]
+  },
+  "billed_cost_usd": null,
+  "billing_basis": "Usage tokens times conservative verified rates; not an invoice.",
+  "dataset_split_counts": {
+    "regression": 3,
+    "targeted": 0,
+    "holdout": 0
+  },
+  "baseline_candidate_comparison": false,
+  "cases": [
+    {
+      "case_id": "amiga.pdf.normal.v1",
+      "run_id": "9e2cd35e-d68c-470f-b184-33452b3623ca",
+      "executed_at_utc": "2026-10-12T15:37:50.842398+00:00",
+      "passed": true,
+      "request_status": "READY_FOR_REVIEW",
+      "checked_fields": 24,
+      "input_tokens": 750,
+      "output_tokens": 679,
+      "duration_ms": 7311,
+      "cost_upper_estimate_usd": "0.00043325",
+      "model": "gpt-6-luna",
+      "prompt_version": "amiga-pdf-extract.v1",
+      "dataset_file_sha256": "9813743da5b5b5ad044cb517e431acf0b5e3da4bd4baa440f775da78bea4840e",
+      "input_pdf_sha256": "f69e6aa182d03942e40662df2a0f11b0e93fd3d19898d0d24327d7e007a6b41b",
+      "code_sha256": "7837fcd74c3a0af867fb6b4b7c1b995fcb6b30b7cd97e9055e0e779c1d55227d",
+      "result_path": "live/9e2cd35e-d68c-470f-b184-33452b3623ca/result.json"
+    },
+    {
+      "case_id": "amiga.pdf.missing_bank.v1",
+      "run_id": "efb755c3-c8f6-46ad-b066-649cd1464c82",
+      "executed_at_utc": "2026-10-12T15:38:10.365341+00:00",
+      "passed": true,
+      "request_status": "EXCEPTION",
+      "checked_fields": 24,
+      "input_tokens": 738,
+      "output_tokens": 1054,
+      "duration_ms": 7782,
+      "cost_upper_estimate_usd": "0.00061925",
+      "model": "gpt-6-luna",
+      "prompt_version": "amiga-pdf-extract.v1",
+      "dataset_file_sha256": "9813743da5b5b5ad044cb517e431acf0b5e3da4bd4baa440f775da78bea4840e",
+      "input_pdf_sha256": "f15ae30a81564a943c827d10b2efb24abd652d987c0c03ef0a8355434db38720",
+      "code_sha256": "7837fcd74c3a0af867fb6b4b7c1b995fcb6b30b7cd97e9055e0e779c1d55227d",
+      "result_path": "live/efb755c3-c8f6-46ad-b066-649cd1464c82/result.json"
+    },
+    {
+      "case_id": "amiga.pdf.wrong_total.v1",
+      "run_id": "c0e4612e-8a91-404c-a5d8-9fcf546a99b4",
+      "executed_at_utc": "2026-10-12T15:38:28.515295+00:00",
+      "passed": true,
+      "request_status": "EXCEPTION",
+      "checked_fields": 24,
+      "input_tokens": 751,
+      "output_tokens": 679,
+      "duration_ms": 6477,
+      "cost_upper_estimate_usd": "0.000433375",
+      "model": "gpt-6-luna",
+      "prompt_version": "amiga-pdf-extract.v1",
+      "dataset_file_sha256": "9813743da5b5b5ad044cb517e431acf0b5e3da4bd4baa440f775da78bea4840e",
+      "input_pdf_sha256": "721ab3578f5eb2243e895fb7ea1ccb6a1672f98cc18e9bf73773a2f29e967449",
+      "code_sha256": "7837fcd74c3a0af867fb6b4b7c1b995fcb6b30b7cd97e9055e0e779c1d55227d",
+      "result_path": "live/c0e4612e-8a91-404c-a5d8-9fcf546a99b4/result.json"
+    }
+  ]
+}

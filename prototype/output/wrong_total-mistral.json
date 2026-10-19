@@ -1,0 +1,295 @@
+{
+  "example_kind": "OFFLINE_SYNTHETIC_PROTOTYPE",
+  "schema_version": "invoice-extraction.v1",
+  "request_id": "req_demo_wrong_total",
+  "client_id": "client_demo_a",
+  "request_status": "EXCEPTION",
+  "invoice_version": 1,
+  "processing": {
+    "run_id": "ee003e14-b656-48f4-a01f-a45b56bf08a2",
+    "mode": "OFFLINE_MOCK",
+    "live_provider_calls": 0,
+    "status": "COMPLETED",
+    "measured_live_duration_ms": null,
+    "billed_cost_usd": null,
+    "provider": "mistral",
+    "model_or_engine": "mistral-ocr-4-1",
+    "expected_page_count": 1,
+    "returned_page_count": 1,
+    "pages_complete": true,
+    "page_confidence": [
+      {
+        "page": 1,
+        "native_confidence": null
+      }
+    ],
+    "extractor": "fixture",
+    "prompt_version": null
+  },
+  "invoice": {
+    "vendor_id": "vendor_demo_001",
+    "vendor_name": "PT Contoh Demo",
+    "invoice_number": "INV-DEMO-001",
+    "invoice_date": "2026-10-12",
+    "due_date": null,
+    "currency": "IDR",
+    "line_items": [
+      {
+        "line_number": 1,
+        "description": "Barang contoh A",
+        "quantity": "2",
+        "unit_price": "150000.00",
+        "stated_line_total": "300000.00"
+      },
+      {
+        "line_number": 2,
+        "description": "Barang contoh B",
+        "quantity": "1",
+        "unit_price": "125000.00",
+        "stated_line_total": "125000.00"
+      },
+      {
+        "line_number": 3,
+        "description": "Barang contoh C",
+        "quantity": "3",
+        "unit_price": "25000.00",
+        "stated_line_total": "75000.00"
+      }
+    ],
+    "stated_subtotal": "500000.00",
+    "stated_discount_total": "0.00",
+    "stated_tax_total": "0.00",
+    "stated_total": "510000.00",
+    "payment": {
+      "bank_name": "Bank Contoh",
+      "account_holder": "PT Contoh Demo",
+      "account_number": "00123456"
+    }
+  },
+  "source_evidence": {
+    "vendor_name": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "PT Contoh Demo",
+      "bbox": null
+    },
+    "invoice_number": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "INV-DEMO-001",
+      "bbox": null
+    },
+    "invoice_date": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "2026-10-12",
+      "bbox": null
+    },
+    "due_date": null,
+    "currency": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "IDR",
+      "bbox": null
+    },
+    "line_items[0].description": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "Barang contoh A",
+      "bbox": null
+    },
+    "line_items[0].quantity": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "2",
+      "bbox": null
+    },
+    "line_items[0].unit_price": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "150000.00",
+      "bbox": null
+    },
+    "line_items[0].stated_line_total": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "300000.00",
+      "bbox": null
+    },
+    "line_items[1].description": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "Barang contoh B",
+      "bbox": null
+    },
+    "line_items[1].quantity": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "1",
+      "bbox": null
+    },
+    "line_items[1].unit_price": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "125000.00",
+      "bbox": null
+    },
+    "line_items[1].stated_line_total": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "125000.00",
+      "bbox": null
+    },
+    "line_items[2].description": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "Barang contoh C",
+      "bbox": null
+    },
+    "line_items[2].quantity": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "3",
+      "bbox": null
+    },
+    "line_items[2].unit_price": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "25000.00",
+      "bbox": null
+    },
+    "line_items[2].stated_line_total": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "75000.00",
+      "bbox": null
+    },
+    "stated_subtotal": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "500000.00",
+      "bbox": null
+    },
+    "stated_discount_total": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "0.00",
+      "bbox": null
+    },
+    "stated_tax_total": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "0.00",
+      "bbox": null
+    },
+    "stated_total": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "510000.00",
+      "bbox": null
+    },
+    "payment.bank_name": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "Bank Contoh",
+      "bbox": null
+    },
+    "payment.account_holder": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "PT Contoh Demo",
+      "bbox": null
+    },
+    "payment.account_number": {
+      "document_id": "doc_demo_001",
+      "page": 1,
+      "raw_value": "00123456",
+      "bbox": null
+    }
+  },
+  "voucher": {
+    "status": "NOT_CREATED",
+    "approved_version": null
+  },
+  "validation": {
+    "rules_version": "demo-rules.v1",
+    "calculated_subtotal": "500000.00",
+    "calculated_total": "500000.00",
+    "total_difference": "-10000.00",
+    "checks": [
+      {
+        "code": "OCR_COMPLETE",
+        "status": "PASSED",
+        "blocking": false,
+        "field": null,
+        "message": "Pemeriksaan kelengkapan halaman OCR."
+      },
+      {
+        "code": "SOURCE_EVIDENCE_MATCH",
+        "status": "PASSED",
+        "blocking": false,
+        "field": null,
+        "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+      },
+      {
+        "code": "LINE_TOTAL_MATCH",
+        "status": "PASSED",
+        "blocking": false,
+        "field": "line_items[0]",
+        "message": "Pemeriksaan quantity x unit price terhadap total baris."
+      },
+      {
+        "code": "LINE_TOTAL_MATCH",
+        "status": "PASSED",
+        "blocking": false,
+        "field": "line_items[1]",
+        "message": "Pemeriksaan quantity x unit price terhadap total baris."
+      },
+      {
+        "code": "LINE_TOTAL_MATCH",
+        "status": "PASSED",
+        "blocking": false,
+        "field": "line_items[2]",
+        "message": "Pemeriksaan quantity x unit price terhadap total baris."
+      },
+      {
+        "code": "SUBTOTAL_MATCH",
+        "status": "PASSED",
+        "blocking": false,
+        "field": null,
+        "message": "Pemeriksaan jumlah total baris."
+      },
+      {
+        "code": "TOTAL_MISMATCH",
+        "status": "FAILED",
+        "blocking": true,
+        "field": null,
+        "message": "Pemeriksaan total dengan aturan demo."
+      },
+      {
+        "code": "DUPLICATE_CHECK",
+        "status": "PASSED",
+        "blocking": false,
+        "field": null,
+        "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+      },
+      {
+        "code": "BANK_VERIFIED",
+        "status": "PASSED",
+        "blocking": false,
+        "field": null,
+        "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+      }
+    ]
+  },
+  "review": {
+    "required": true,
+    "can_approve": false,
+    "blocked_reasons": [
+      "UNRESOLVED_EXCEPTION"
+    ],
+    "approved_by": null,
+    "approved_version": null,
+    "permission_scope": "LOCAL_CONTEXT_CHECK_NOT_DATABASE_AUTHORIZATION"
+  }
+}

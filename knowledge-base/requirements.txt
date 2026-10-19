@@ -1,0 +1,2 @@
+# Dependensi tools knowledge-base. Dipasang ke .venv hackthon yang sama dengan app.
+boto3==1.43.112

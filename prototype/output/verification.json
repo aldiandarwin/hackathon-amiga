@@ -1,0 +1,2112 @@
+{
+  "generated_at_utc": "2026-10-15T18:35:50.453500+00:00",
+  "scope": "OFFLINE_SYNTHETIC_PIPELINE_AND_UNIT_TESTS",
+  "live_provider_calls": 0,
+  "live_ocr_accuracy_tested": false,
+  "live_latency_targets_tested": false,
+  "database_or_http_authorization_tested": false,
+  "unit_tests": {
+    "run": 82,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "scenario_runs": 30,
+  "scenario_passes": 30,
+  "local_verification_elapsed_seconds": 2.2366,
+  "result": "PASS",
+  "scenarios": [
+    {
+      "case": "normal",
+      "provider": "ocr_space",
+      "expected_status": "READY_FOR_REVIEW",
+      "actual_status": "READY_FOR_REVIEW",
+      "result": "PASS",
+      "can_approve_in_local_context": true,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "normal",
+      "provider": "mistral",
+      "expected_status": "READY_FOR_REVIEW",
+      "actual_status": "READY_FOR_REVIEW",
+      "result": "PASS",
+      "can_approve_in_local_context": true,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "missing_bank",
+      "provider": "ocr_space",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "MISSING_EVIDENCE",
+          "status": "FAILED",
+          "blocking": true,
+          "field": "payment.account_number",
+          "message": "Field wajib belum tersedia."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_UNVERIFIED",
+          "status": "NOT_CHECKED",
+          "blocking": true,
+          "field": null,
+          "message": "Verifikasi rekening belum dapat dilakukan."
+        }
+      ]
+    },
+    {
+      "case": "missing_bank",
+      "provider": "mistral",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "MISSING_EVIDENCE",
+          "status": "FAILED",
+          "blocking": true,
+          "field": "payment.account_number",
+          "message": "Field wajib belum tersedia."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_UNVERIFIED",
+          "status": "NOT_CHECKED",
+          "blocking": true,
+          "field": null,
+          "message": "Verifikasi rekening belum dapat dilakukan."
+        }
+      ]
+    },
+    {
+      "case": "wrong_total",
+      "provider": "ocr_space",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MISMATCH",
+          "status": "FAILED",
+          "blocking": true,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "wrong_total",
+      "provider": "mistral",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MISMATCH",
+          "status": "FAILED",
+          "blocking": true,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "duplicate",
+      "provider": "ocr_space",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "POSSIBLE_DUPLICATE",
+          "status": "FAILED",
+          "blocking": true,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "duplicate",
+      "provider": "mistral",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "POSSIBLE_DUPLICATE",
+          "status": "FAILED",
+          "blocking": true,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "different_client",
+      "provider": "ocr_space",
+      "expected_status": "READY_FOR_REVIEW",
+      "actual_status": "READY_FOR_REVIEW",
+      "result": "PASS",
+      "can_approve_in_local_context": true,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "different_client",
+      "provider": "mistral",
+      "expected_status": "READY_FOR_REVIEW",
+      "actual_status": "READY_FOR_REVIEW",
+      "result": "PASS",
+      "can_approve_in_local_context": true,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "partial_ocr",
+      "provider": "ocr_space",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_INCOMPLETE",
+          "status": "FAILED",
+          "blocking": true,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "partial_ocr",
+      "provider": "mistral",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_INCOMPLETE",
+          "status": "FAILED",
+          "blocking": true,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "failed_ocr",
+      "provider": "ocr_space",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "EXTRACTION_FAILED",
+          "status": "FAILED",
+          "blocking": true,
+          "field": null,
+          "message": "Provider returned no readable pages."
+        }
+      ]
+    },
+    {
+      "case": "failed_ocr",
+      "provider": "mistral",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "EXTRACTION_FAILED",
+          "status": "FAILED",
+          "blocking": true,
+          "field": null,
+          "message": "Provider returned no readable pages."
+        }
+      ]
+    },
+    {
+      "case": "unsupported_value",
+      "provider": "ocr_space",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_VALUE_MISMATCH",
+          "status": "FAILED",
+          "blocking": true,
+          "field": "stated_total",
+          "message": "Nilai ekstraksi berbeda dari bukti sumber."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MISMATCH",
+          "status": "FAILED",
+          "blocking": true,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "unsupported_value",
+      "provider": "mistral",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_VALUE_MISMATCH",
+          "status": "FAILED",
+          "blocking": true,
+          "field": "stated_total",
+          "message": "Nilai ekstraksi berbeda dari bukti sumber."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MISMATCH",
+          "status": "FAILED",
+          "blocking": true,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "forged_quote",
+      "provider": "ocr_space",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_INVALID",
+          "status": "FAILED",
+          "blocking": true,
+          "field": "payment.account_number",
+          "message": "Bukti sumber tidak tersedia pada halaman yang ditunjuk."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "forged_quote",
+      "provider": "mistral",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_INVALID",
+          "status": "FAILED",
+          "blocking": true,
+          "field": "payment.account_number",
+          "message": "Bukti sumber tidak tersedia pada halaman yang ditunjuk."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "bank_mismatch",
+      "provider": "ocr_space",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_MISMATCH",
+          "status": "FAILED",
+          "blocking": true,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "bank_mismatch",
+      "provider": "mistral",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_MISMATCH",
+          "status": "FAILED",
+          "blocking": true,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "unknown_bank_master",
+      "provider": "ocr_space",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_UNVERIFIED",
+          "status": "NOT_CHECKED",
+          "blocking": true,
+          "field": null,
+          "message": "Verifikasi rekening belum dapat dilakukan."
+        }
+      ]
+    },
+    {
+      "case": "unknown_bank_master",
+      "provider": "mistral",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_UNVERIFIED",
+          "status": "NOT_CHECKED",
+          "blocking": true,
+          "field": null,
+          "message": "Verifikasi rekening belum dapat dilakukan."
+        }
+      ]
+    },
+    {
+      "case": "unknown_history",
+      "provider": "ocr_space",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "NOT_CHECKED",
+          "blocking": true,
+          "field": null,
+          "message": "Master vendor/riwayat/nomor invoice belum siap."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "unknown_history",
+      "provider": "mistral",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "NOT_CHECKED",
+          "blocking": true,
+          "field": null,
+          "message": "Master vendor/riwayat/nomor invoice belum siap."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "missing_discount",
+      "provider": "ocr_space",
+      "expected_status": "READY_FOR_REVIEW",
+      "actual_status": "READY_FOR_REVIEW",
+      "result": "PASS",
+      "can_approve_in_local_context": true,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Total cocok tanpa diskon; invoice tidak mencantumkan diskon."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "missing_discount",
+      "provider": "mistral",
+      "expected_status": "READY_FOR_REVIEW",
+      "actual_status": "READY_FOR_REVIEW",
+      "result": "PASS",
+      "can_approve_in_local_context": true,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Total cocok tanpa diskon; invoice tidak mencantumkan diskon."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "missing_discount_gap",
+      "provider": "ocr_space",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "INSUFFICIENT_CALCULATION_EVIDENCE",
+          "status": "NOT_CHECKED",
+          "blocking": true,
+          "field": null,
+          "message": "Penyesuaian/total belum lengkap; null tidak diasumsikan nol."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "missing_discount_gap",
+      "provider": "mistral",
+      "expected_status": "EXCEPTION",
+      "actual_status": "EXCEPTION",
+      "result": "PASS",
+      "can_approve_in_local_context": false,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "INSUFFICIENT_CALCULATION_EVIDENCE",
+          "status": "NOT_CHECKED",
+          "blocking": true,
+          "field": null,
+          "message": "Penyesuaian/total belum lengkap; null tidak diasumsikan nol."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "five_pages",
+      "provider": "ocr_space",
+      "expected_status": "READY_FOR_REVIEW",
+      "actual_status": "READY_FOR_REVIEW",
+      "result": "PASS",
+      "can_approve_in_local_context": true,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    },
+    {
+      "case": "five_pages",
+      "provider": "mistral",
+      "expected_status": "READY_FOR_REVIEW",
+      "actual_status": "READY_FOR_REVIEW",
+      "result": "PASS",
+      "can_approve_in_local_context": true,
+      "checks": [
+        {
+          "code": "OCR_COMPLETE",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kelengkapan halaman OCR."
+        },
+        {
+          "code": "SOURCE_EVIDENCE_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Nilai terisi mempunyai kutipan sumber yang sesuai."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[0]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[1]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "LINE_TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": "line_items[2]",
+          "message": "Pemeriksaan quantity x unit price terhadap total baris."
+        },
+        {
+          "code": "SUBTOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan jumlah total baris."
+        },
+        {
+          "code": "TOTAL_MATCH",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan total dengan aturan demo."
+        },
+        {
+          "code": "DUPLICATE_CHECK",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pemeriksaan kandidat duplikasi dalam scope klien."
+        },
+        {
+          "code": "BANK_VERIFIED",
+          "status": "PASSED",
+          "blocking": false,
+          "field": null,
+          "message": "Pencocokan dengan master demo yang sudah diverifikasi."
+        }
+      ]
+    }
+  ]
+}

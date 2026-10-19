@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    ports:
+      - "127.0.0.1:15432:5432"
+    environment:
+      POSTGRES_DB: amiga
+      POSTGRES_USER: amiga
+      POSTGRES_PASSWORD: ${AMIGA_DB_PASSWORD:?Local database password required}
+    volumes:
+      - ../.appdata/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U amiga -d amiga"]
+      interval: 5s
+      timeout: 3s
+      retries: 12

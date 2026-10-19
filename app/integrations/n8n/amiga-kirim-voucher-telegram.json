@@ -1,0 +1,140 @@
+{
+  "name": "AMIGA kirim voucher final ke Telegram",
+  "nodes": [
+    {
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "5e0a7a35-2f7b-4d0f-9a64-0c8f1f6c2b11",
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "amiga-voucher-final",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      }
+    },
+    {
+      "name": "Voucher PDF",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        0
+      ],
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "body.file.base64",
+        "binaryPropertyName": "data",
+        "options": {
+          "fileName": "={{ $json.body.file.name }}",
+          "mimeType": "application/pdf"
+        }
+      }
+    },
+    {
+      "name": "Kirim ke Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        480,
+        0
+      ],
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "resource": "message",
+        "operation": "sendDocument",
+        "chatId": "={{ $('Webhook').item.json.body.chat_id }}",
+        "binaryData": true,
+        "binaryPropertyName": "data",
+        "additionalFields": {
+          "caption": "={{ $('Webhook').item.json.body.caption }}",
+          "parse_mode": "HTML"
+        }
+      }
+    },
+    {
+      "name": "Terkirim",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        -100
+      ],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ ok: true, message_id: $json.result.message_id, chat_id: String($json.result.chat.id) }) }}",
+        "options": {
+          "responseCode": 200
+        }
+      }
+    },
+    {
+      "name": "Gagal",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        100
+      ],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ ok: false }) }}",
+        "options": {
+          "responseCode": 422
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Voucher PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Voucher PDF": {
+      "main": [
+        [
+          {
+            "node": "Kirim ke Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kirim ke Telegram": {
+      "main": [
+        [
+          {
+            "node": "Terkirim",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Gagal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "active": false
+}
