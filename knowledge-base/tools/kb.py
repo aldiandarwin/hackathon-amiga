@@ -48,9 +48,10 @@ HASIL = KB_DIR / "eval" / "hasil"
 REGION = "ap-southeast-1"
 EMBED_BAWAAN = "cohere.embed-multilingual-v3"
 DIMENSI = 1024
-BUCKET_BAWAAN = "bedrock-kb-student9-1791858339"
+# Public placeholders; configure your own AWS resources before live operations.
+BUCKET_BAWAAN = "example-amiga-sop-bucket"
 PREFIX = "amiga-sop/"
-VECTOR_BUCKET = "bedrock-kb-student9-vectors-v1"
+VECTOR_BUCKET = "example-amiga-vector-bucket"
 INDEX = "amiga-sop-v1"
 KB_NAME = "bedrock-kb-student9-amiga-sop-v1"
 DS_NAME = "amiga-sop-s3-v1"

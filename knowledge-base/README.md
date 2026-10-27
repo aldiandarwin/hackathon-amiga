@@ -1,5 +1,8 @@
 # Knowledge base SOP AMIGA Robot Admin
 
+Nama bucket dan ID resource pada contoh adalah placeholder publik. Sesuaikan dengan resource milik environment Anda sebelum menjalankan perintah AWS.
+Demo penilaian lokal dengan replay tidak memerlukan perintah AWS di dokumen ini.
+
 Korpus SOP untuk RAG di Amazon Bedrock, kelompok 9 MAIN Hackathon 2026.
 
 ## Status per 15 Oktober 2026, malam (Manajer Keuangan dan tanda tangan basah)
@@ -66,8 +69,8 @@ Korpus SOP untuk RAG di Amazon Bedrock, kelompok 9 MAIN Hackathon 2026.
 - **Diperiksa independen dua putaran.** Putaran pertama oleh empat pemeriksa menemukan satu klaim salah dan puluhan nuansa yang menyesatkan atau kurang lengkap. Putaran kedua memeriksa ulang bagian yang diperbaiki dan menemukan lima hal lagi. Semuanya sudah diperbaiki.
 - **RAG manual sudah jalan tanpa Knowledge Base.** `tools/rag.py` membaca 58 kartu dari akar bucket, memotongnya jadi 120 chunk, lalu mencari dengan embedding Titan V1 dan skor kata. Nova Lite menjawab dengan referensi kartu dan lokasi S3-nya. Rinciannya ada di bagian [RAG manual](#rag-manual-tanpa-knowledge-base).
 - **Mutu jawaban RAG belum lolos pemeriksaan manual ketat.** Uji 8 pertanyaan lolos 8 secara otomatis, tapi hanya 4 yang lolos pemeriksaan manual ketat.
-- **Kartu ada di dua tempat di S3.** Akar `s3://bedrock-kb-student9-1791858339/` berisi salinan persis 58 kartu `sop/`, diunggah Aldian 13 Oktober malam. Prefix `amiga-sop/` berisi 116 berkas build `b7f08061eacd37cc` untuk jalur KB.
-- **Jalur Knowledge Base diparkir.** KB `TWBWJWOHRJ` memakai Cohere, dan izinnya belum dibuka. Mode cadangan `kb.py` tetap bisa dipakai tanpa embedding. Rinciannya ada di bagian [Status AWS](#status-aws-dan-cara-melanjutkan).
+- **Kartu ada di dua tempat di S3.** Akar `s3://example-amiga-sop-bucket/` berisi salinan persis 58 kartu `sop/`, diunggah Aldian 13 Oktober malam. Prefix `amiga-sop/` berisi 116 berkas build `b7f08061eacd37cc` untuk jalur KB.
+- **Jalur Knowledge Base diparkir.** KB `KBEXAMPLE1` memakai Cohere, dan izinnya belum dibuka. Mode cadangan `kb.py` tetap bisa dipakai tanpa embedding. Rinciannya ada di bagian [Status AWS](#status-aws-dan-cara-melanjutkan).
 - **Perlu konfirmasi tim.** Kartu memakai Tech Lead sebagai tujuan eskalasi masalah teknis. Dokumen tim baru menyebut Tech Lead sebagai pemilik keputusan anggaran dan provider, dan acceptance checklist mencatat penanggung jawab teknis belum ditetapkan.
 
 ### Kalau app berubah lagi
@@ -153,7 +156,7 @@ Build menolak jalan kalau `dist/` berisi file yang tidak dihasilkannya. Hapus fi
 Contoh unggah ke akar bucket dengan AWS CLI:
 
 ```powershell
-aws s3 cp knowledge-base\sop\ s3://bedrock-kb-student9-1791858339/ --recursive --exclude "*" --include "*.md" --region ap-southeast-1
+aws s3 cp knowledge-base\sop\ s3://example-amiga-sop-bucket/ --recursive --exclude "*" --include "*.md" --region ap-southeast-1
 ```
 
 Kode yang hanya keluar dari kontrak prototipe, seperti `ROLE_NOT_ALLOWED`, diberi kelas `prototipe` di `kosakata.json`. Kode kelas ini tidak wajib disebut di kartu, karena tidak pernah tampil di aplikasi.
@@ -169,7 +172,7 @@ Kode yang hanya keluar dari kontrak prototipe, seperti `ROLE_NOT_ALLOWED`, diber
 | `AWS_BUCKET` | Bucket kartu. `kb.py` memakai prefix `amiga-sop/`, sedangkan `rag.py` membaca kartu ber-front matter di akar bucket |
 | `BEDROCK_KB_ID` | KB untuk Retrieve dan ingestion `kb.py`. Kalau kosong, diambil dari `kb-config.json` |
 | `BEDROCK_KB_ROLE_ARN` | Role saat `siapkan` membuat KB baru |
-| `BEDROCK_EMBED_MODEL_ID` | Model embedding `rag.py`, sekarang `amazon.titan-embed-text-v1`. KB `TWBWJWOHRJ` memakai Cohere, jadi mode KB `kb.py` melaporkan model beda selama jalur KB diparkir |
+| `BEDROCK_EMBED_MODEL_ID` | Model embedding `rag.py`, sekarang `amazon.titan-embed-text-v1`. KB `KBEXAMPLE1` memakai Cohere, jadi mode KB `kb.py` melaporkan model beda selama jalur KB diparkir |
 | `BEDROCK_MODEL_ID` | Model penjawab lewat Converse, dipakai `kb.py` dan `rag.py` |
 
 - Key yang kosong jatuh ke nilai bawaan. `kb.py periksa` mencetak sumber setiap nilai.
@@ -206,7 +209,7 @@ Contoh jawaban dari uji 13 Oktober malam:
 
 Referensi:
 1. [TOLAK-BATCH] Unggahan batch ditolak: arti pesan dan tindakannya
-   bagian Ringkasnya, Pertanyaan umum, cosine 0.7591, kata 0.2521, s3://bedrock-kb-student9-1791858339/tolak-batch.md
+   bagian Ringkasnya, Pertanyaan umum, cosine 0.7591, kata 0.2521, s3://example-amiga-sop-bucket/tolak-batch.md
 ```
 
 **Kenapa Titan V1 dan skor kata.** Hasil uji 13 pertanyaan, 13 Oktober malam:
@@ -245,14 +248,17 @@ Karena itu, jawaban RAG harus selalu ditampilkan bersama referensinya.
 
 ## Status AWS dan cara melanjutkan
 
+Bagian ini menyimpan hasil uji akun kelas pada 13 Oktober 2026. Nama role dan resource kelas dicantumkan sebagai konteks arsip.
+Untuk penilaian lokal, ikuti demo replay pada README utama. Perintah AWS di bawah hanya relevan setelah pemilik environment menyiapkan resource dan izin sendiri.
+
 **Resource jalur KB di ap-southeast-1:**
 
 | Resource | Nama atau ID |
 |---|---|
-| Knowledge Base | `bedrock-kb-student9-amiga-sop-v1` (`TWBWJWOHRJ`), embedding `cohere.embed-multilingual-v3` |
-| Data source | `amiga-sop-s3-v1` (`ZLXSOFUUPC`), chunking `NONE`, satu file satu chunk |
-| Vector store | S3 Vectors `bedrock-kb-student9-vectors-v1`, index `amiga-sop-v1`, 1024 dimensi, cosine |
-| Data | `s3://bedrock-kb-student9-1791858339/amiga-sop/`, 116 berkas build `b7f08061eacd37cc` |
+| Knowledge Base | `bedrock-kb-student9-amiga-sop-v1` (`KBEXAMPLE1`), embedding `cohere.embed-multilingual-v3` |
+| Data source | `amiga-sop-s3-v1` (`DSEXAMPLE1`), chunking `NONE`, satu file satu chunk |
+| Vector store | S3 Vectors `example-amiga-vector-bucket`, index `amiga-sop-v1`, 1024 dimensi, cosine |
+| Data | `s3://example-amiga-sop-bucket/amiga-sop/`, 116 berkas build `b7f08061eacd37cc` |
 
 **Fakta izin, terverifikasi 13 Oktober 2026 malam:**
 
@@ -336,7 +342,7 @@ import boto3
 
 runtime = boto3.client("bedrock-agent-runtime", region_name="ap-southeast-1")
 respons = runtime.retrieve(
-    knowledgeBaseId="TWBWJWOHRJ",
+    knowledgeBaseId="KBEXAMPLE1",
     retrievalQuery={"text": "Langkah penanganan untuk BANK_MISMATCH"},
     retrievalConfiguration={"vectorSearchConfiguration": {
         "numberOfResults": 1,
@@ -373,11 +379,11 @@ Untuk kode kegagalan proses seperti `BUDGET_BLOCKED` dan `DOCUMENT_CHANGED`, lay
 Jangan jalankan tanpa persetujuan Aldian. Urutannya data source, KB, index, vector bucket, lalu objek S3.
 
 ```powershell
-aws bedrock-agent delete-data-source --region ap-southeast-1 --knowledge-base-id TWBWJWOHRJ --data-source-id ZLXSOFUUPC
-aws bedrock-agent delete-knowledge-base --region ap-southeast-1 --knowledge-base-id TWBWJWOHRJ
-aws s3vectors delete-index --region ap-southeast-1 --vector-bucket-name bedrock-kb-student9-vectors-v1 --index-name amiga-sop-v1
-aws s3vectors delete-vector-bucket --region ap-southeast-1 --vector-bucket-name bedrock-kb-student9-vectors-v1
-aws s3 rm s3://bedrock-kb-student9-1791858339/amiga-sop/ --recursive --region ap-southeast-1
+aws bedrock-agent delete-data-source --region ap-southeast-1 --knowledge-base-id KBEXAMPLE1 --data-source-id DSEXAMPLE1
+aws bedrock-agent delete-knowledge-base --region ap-southeast-1 --knowledge-base-id KBEXAMPLE1
+aws s3vectors delete-index --region ap-southeast-1 --vector-bucket-name example-amiga-vector-bucket --index-name amiga-sop-v1
+aws s3vectors delete-vector-bucket --region ap-southeast-1 --vector-bucket-name example-amiga-vector-bucket
+aws s3 rm s3://example-amiga-sop-bucket/amiga-sop/ --recursive --region ap-southeast-1
 ```
 
 ## Rujukan dokumentasi AWS

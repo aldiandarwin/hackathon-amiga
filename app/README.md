@@ -1,6 +1,6 @@
-# AMIGA — upload dan review invoice lokal
+# AMIGA: upload dan review invoice lokal
 
-**Pintu utama:** `http://127.0.0.1:3000/`. Jalankan backend di bawah, lalu `npm run build` dan `npm run start`
+**Pintu utama:** `http://127.0.0.1:3000/`. Jalankan backend di bawah, lalu `npm.cmd run build` dan `npm.cmd run start`
 di `web/`. Dashboard, unggah, login, review, dan persetujuan dibuka di satu alamat. Port 8787 menjalankan API;
 alamat lamanya mengarahkan ke UI pada port 3000. Hanya PIC yang mengunggah; menu Finance dan Manajer Keuangan berisi
 **Persetujuan**. Sesudah Finance menyetujui, manajer keuangan masuk lewat **Ganti akun** atau **Masuk sebagai Manajer
@@ -8,40 +8,49 @@ Keuangan** pada review, memeriksa **Menunggu manajer keuangan**, lalu menyetujui
 
 Di tab **Data invoice → Nominal**, PPN yang tidak tercantum dapat dipilih sebagai **Tambahkan PPN di atas total invoice**.
 Alasan wajib dicatat. Sistem menyimpan total sumber, tambahan PPN, potongan PPh, dan nominal vendor secara terpisah.
-Finance wajib mengonfirmasi tambahan ini saat menyetujui. Voucher v7 memakai logo dan palet AMIGA, dengan satu
-ringkasan nominal, tiga kotak tanda tangan basah, dan QR yang bisa diklik. Alasan, hitungan rinci, catatan konfirmasi vendor, hash dan jejak review
+Finance wajib mengonfirmasi tambahan ini saat menyetujui. Voucher v8 memakai logo dan palet AMIGA, dengan satu
+ringkasan nominal, dua kotak tanda tangan basah untuk PIC dan vendor, dan QR yang bisa diklik. Alasan, hitungan rinci, catatan konfirmasi vendor, hash dan jejak review
 tersedia di layar review/audit/verifikasi; bagian tersebut tidak dicetak berulang pada voucher.
-Penambahan ini tidak otomatis dipilih saat unggah. Voucher v1–v6 tetap dapat dirender tanpa perubahan byte.
+Penambahan ini tidak otomatis dipilih saat unggah. Voucher v1 sampai v7 tetap dapat dirender dengan renderer versi masing-masing.
 Jika Finance sudah menyetujui, perubahan pajak menjadi versi baru yang perlu disetujui ulang sebelum manajer keuangan.
 
 Tahap 1–4 MVP tim 9. Stack: FastAPI, PostgreSQL 17, worker lokal, ReportLab PDF, HTML/CSS/JavaScript. Browser menampilkan halaman PDF asli berdampingan dengan kandidat invoice, kutipan sumber, hasil validasi, dan riwayat koreksi.
 
-## Menjalankan di komputer ini
+## Setup lokal untuk instruktur
 
-Dari root `hackthon`:
+Ikuti urutan lengkap pada [panduan penilaian lokal](../README.md#jalankan-lokal-untuk-penilaian).
+Panduan tersebut mencakup prasyarat, dua terminal, health check, akun, replay, dan troubleshooting.
+Dari checkout baru, siapkan `.venv`, install `app/requirements.lock.txt`, lalu jalankan `app.configure_local` sebelum database pertama.
+
+Setelah konfigurasi pertama selesai, jalankan dari root repo:
 
 ```powershell
 docker compose --env-file .env -f app/compose.yaml up -d --wait
-.\app\start.ps1
-```
-
-Buka http://127.0.0.1:8787. Akun dan password lokal ada di `.appdata/demo-access.txt`; jangan commit file tersebut. Tim A, `pic@amiga.local` dan `finance@amiga.local`, memegang 10 klien yang sama, termasuk PT Arunika Sejahtera (ARS). Tim B, `pic.b@amiga.local` dan `finance.b@amiga.local`, memegang 10 klien lain, termasuk PT Bumi Persada (BMP). Hanya PIC yang mengunggah. PIC mengoreksi selama invoice belum diajukan, lalu mengajukannya ke Finance. PIC juga dapat membuat klien baru untuk timnya. Finance memeriksa, mengoreksi, lalu menyetujui atau mengembalikan invoice yang sudah diajukan. `manajer.keuangan@amiga.local` adalah Manajer Keuangan AMIGA untuk 20 klien: menyetujui voucher final atau mengembalikannya ke Finance. Uploader tidak dapat menyetujui invoice sendiri.
-
-Server hanya mendengarkan localhost. Jalankan `.\app\start.ps1 -Restart` sesudah mengubah Python. Script hanya menghentikan listener port 8787 apabila command line cocok dengan Python project dan `app.run`; restart dapat memutus pekerjaan aktif, jadi tunggu antrean selesai. Untuk menjalankan di terminal: `.\.venv\Scripts\python.exe -B -m app.run`.
-
-## Setup pertama pada checkout baru
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install --disable-pip-version-check -r app/requirements.lock.txt
-.\.venv\Scripts\python.exe -B -m app.configure_local
-docker compose --env-file .env -f app/compose.yaml up -d --wait
+$env:AMIGA_PUBLIC_BASE_URL = 'http://127.0.0.1:3000'
 .\.venv\Scripts\python.exe -B -m app.run
 ```
 
-`configure_local` membuat password lokal yang belum ada, mempertahankan konfigurasi yang sudah terisi, dan tidak menginisialisasi atau mengubah ledger OpenAI. Jalankan sebelum startup database pertama. Mengganti password setelah database dibuat memerlukan prosedur rotasi tersendiri; seed akun tidak menimpa akun lama.
+Biarkan backend hidup di terminal ini. Di terminal lain, jalankan frontend sesuai [web/README.md](../web/README.md).
+Buka **http://127.0.0.1:3000/** untuk dashboard dan **http://127.0.0.1:3000/review** untuk contoh replay.
+Port 8787 melayani backend. Halaman pengguna dan login memakai port 3000.
 
-Tiga tombol contoh bekerja tanpa API key dan memakai hasil OpenAI sintetis tersimpan di `sample-results.json`. File PDF sumber ada di `output/pdf/invoice-smoke-pack.pdf`, beserta kontrak dataset di `prototype/dataset/cases.jsonl`. Hash sumber dan dataset diperiksa sebelum replay. Raw trace API dan credential tidak diperlukan untuk contoh.
+Akun dan password lokal dibuat oleh konfigurator di `.appdata/demo-access.txt`. Password yang sama dipakai oleh akun demo pada checkout baru:
+
+| Tim | PIC | Finance |
+| --- | --- | --- |
+| A | `pic@amiga.local` | `finance@amiga.local` |
+| B | `pic.b@amiga.local` | `finance.b@amiga.local` |
+
+Manajer Keuangan untuk seluruh klien: `manajer.keuangan@amiga.local`.
+Gunakan **Ganti akun** untuk beralih peran. PIC dan Finance harus berasal dari tim yang sama untuk memeriksa klien yang sama.
+Hanya PIC yang mengunggah dan mengajukan. Finance memeriksa, menyetujui, atau mengembalikan pengajuan.
+
+`configure_local` hanya mengisi nilai yang belum ada. Ia tidak merotasi password akun lama atau menginisialisasi ledger biaya.
+Jangan menjalankan ulang backend saat request masih diproses. Setelah antrean tenang, hentikan terminal backend milik Anda dengan Ctrl+C, lalu jalankan lagi.
+
+Tiga tombol contoh memakai hasil sintetis tersimpan di `sample-results.json`, tanpa API key atau panggilan AI baru.
+Sumbernya adalah `output/pdf/invoice-smoke-pack.pdf` dan `prototype/dataset/cases.jsonl`; hash keduanya diperiksa sebelum replay.
+File baru yang diunggah memerlukan provider live, kredensial, dan ledger biaya. Konfigurasi live terpisah di [OPENAI_SETUP.md](../prototype/OPENAI_SETUP.md).
 
 ## Alur dan kontrak yang sudah berjalan
 
@@ -98,7 +107,7 @@ Akun lokal, 20 klien, dan master vendor/rekening adalah data demo. RLS, SSO, pro
 
 Koreksi tidak otomatis membenarkan rekening atau menghapus kebutuhan bukti. Scan tanpa text layer ditandai untuk pemeriksaan visual. Tiga contoh memakai nomor invoice yang sama, sehingga contoh berikutnya juga dapat memunculkan flag duplikasi. Upload hash identik dalam klien dan mode yang sama membuka request lama, termasuk request gagal; belum ada alur pengajuan ulang.
 
-Template `amiga-demo-v7` mengikuti Voucher Pengeluaran AMIGA, dengan tiga kotak tanda tangan basah (PIC, Finance, Manajer Keuangan) dan QR verifikasi. Voucher lama tetap `amiga-demo-v1` sampai `amiga-demo-v6`. Nomor `{kode klien}-{urut 5 digit}-{bulan}-{tahun}`, misalnya `ARS-00001-10-2026`, mengikuti pola voucher asli, tapi kode kliennya masih data demo. Manajer Keuangan AMIGA bisa mengembalikan voucher ke Finance. Persetujuan bayar klien tetap di luar aplikasi. PIC mengirim voucher final ke Telegram klien lewat menu Hubungi klien (webhook n8n, `AMIGA_N8N_VOUCHER_WEBHOOK_URL` dan `AMIGA_N8N_WEBHOOK_SECRET` di `.env`); statusnya tercatat terkirim hanya dengan nomor pesan Telegram. Reject, serta aturan dan template final belum diterapkan. Eksekusi pembayaran tetap di luar aplikasi. Adapter OCR.space dan Mistral masih normalisasi respons tersimpan. Transport live memakai Bedrock, dengan OpenAI sebagai cadangan.
+Template terbaru `amiga-demo-v8` memiliki dua kotak tanda tangan basah: PIC dan vendor penerima pembayaran. Persetujuan Finance dan Manajer Keuangan tetap tercatat di aplikasi dan QR verifikasi. Voucher lama tetap memakai renderer `amiga-demo-v1` sampai `amiga-demo-v7`. Nomor `{kode klien}-{urut 5 digit}-{bulan}-{tahun}`, misalnya `ARS-00001-10-2026`, mengikuti pola voucher asli, tapi kode kliennya masih data demo. Manajer Keuangan AMIGA bisa mengembalikan voucher ke Finance. Persetujuan bayar klien tetap di luar aplikasi. PIC mengirim voucher final ke Telegram klien lewat menu Hubungi klien (webhook n8n, `AMIGA_N8N_VOUCHER_WEBHOOK_URL` dan `AMIGA_N8N_WEBHOOK_SECRET` di `.env`); statusnya tercatat terkirim hanya dengan nomor pesan Telegram. Reject, serta aturan dan template final belum diterapkan. Eksekusi pembayaran tetap di luar aplikasi. Adapter OCR.space dan Mistral masih normalisasi respons tersimpan. Transport live memakai Bedrock, dengan OpenAI sebagai cadangan.
 
 ## Verifikasi
 
@@ -120,23 +129,23 @@ Ringkasan nominal membedakan total tagihan, PPN, potongan PPh, dan rencana pemba
 
 Tes integrasi membutuhkan PostgreSQL yang berjalan; setiap tes memakai schema dan direktori privat terpisah. Tidak ada API berbayar dalam tes. Schema/data uji disimpan, tanpa penghapusan otomatis. Bukti tahap 1–2 ada di `output/app/`; approval/voucher tahap 3 ada di `output/app-stage3/`; batch tahap 4 ada di `output/app-stage4/`.
 
-[Verifikasi tahap 4](../output/app-stage4/VERIFICATION.md): 80 tes lulus dan smoke API lokal lulus. Inspeksi browser untuk UI batch masih tertahan kebijakan tool; tampilan desktop/mobile dan interaksi file chooser belum dinyatakan terverifikasi.
+Verifikasi tahap 4 (arsip lokal `output/app-stage4/VERIFICATION.md`, tidak disertakan di repo publik): 80 tes lulus dan smoke API lokal lulus. Inspeksi browser untuk UI batch masih tertahan kebijakan tool; tampilan desktop/mobile dan interaksi file chooser belum dinyatakan terverifikasi.
 
 ## Demo tiga akun tanpa biaya API
 
-1. Masuk sebagai `pic.b@amiga.local`, pilih satu klien yang belum pernah dipakai contoh di kanan atas, misalnya **PT Samudra Hasil Bahari**, lalu pilih contoh **Invoice lengkap**. Tombol contoh menunggu satu klien dipilih.
+1. Buka `http://127.0.0.1:3000/review`, masuk sebagai `pic.b@amiga.local`, pilih satu klien yang belum pernah dipakai contoh di kanan atas, misalnya **PT Samudra Hasil Bahari**, lalu pilih **Invoice lengkap**. Tombol contoh menunggu satu klien dipilih.
 2. Buka request itu, cocokkan data, lalu pilih **Ajukan ke Finance**. Tanggal dipilih dari kalender dan mata uang dari daftar. Isian bertanda **Wajib** yang masih kosong tampil merah, dan tombol Ajukan membawa Anda ke sana. Perubahan yang belum disimpan ikut tersimpan saat diajukan. Centang pernyataan, dan tulis catatan bila masih ada kendala.
 3. Keluar, masuk sebagai `finance.b@amiga.local`, buka request yang sama.
 4. Cocokkan dokumen di kiri dengan data di kanan. Tiap kendala menulis hitungan dan saran dari angka invoice, tanpa AI. **Pakai saran** hanya mengisi form, lalu Finance menyimpan koreksi. Kendala tidak menahan persetujuan: Finance yang memutuskan, dan kendala yang masih terbuka tercatat di riwayat serta terlihat manajer keuangan. Yang tetap menahan hanya isian wajib yang kosong dan pajak yang belum dipilih atau belum terhitung. Pilih **Setujui**, isi catatan review, centang pernyataan, ketik password akun, lalu **Setujui** di dialog. Kalau data harus dibetulkan PIC, pilih **Kembalikan ke PIC** dengan alasan. Invoice kembali ke **Belum diajukan**, PIC membaca alasannya, memperbaiki, lalu mengajukan ulang. Rekening vendor yang didaftarkan pengajuan itu ikut bisa dibetulkan. Biaya di bawah subtotal (admin, ongkir, tools) diisi di **Biaya lain**, bukan Diskon.
 5. Status menjadi **Menunggu manajer keuangan**. Draf voucher resmi ada di tab **Voucher & persetujuan**.
-6. Buka `http://localhost:8787` di tab lain, lalu masuk sebagai `manajer.keuangan@amiga.local` dan pilih klien yang sama, atau biarkan **Semua klien**. Antrean manajer keuangan langsung membuka **Menunggu manajer keuangan**, dan menu **Persetujuan** memuat yang menunggu keputusannya.
+6. Gunakan **Masuk sebagai Manajer Keuangan** atau **Ganti akun** pada origin `http://127.0.0.1:3000`, lalu masuk sebagai `manajer.keuangan@amiga.local` dan pilih klien yang sama, atau biarkan **Semua klien**. Antrean manajer keuangan langsung membuka **Menunggu manajer keuangan**, dan menu **Persetujuan** memuat yang menunggu keputusannya.
 7. Periksa draf voucher dan invoice asli, lalu pilih **Setujui**, atau **Kembalikan ke Finance** dengan alasan.
-8. Sesudah manajer keuangan menyetujui, pilih **Unduh voucher final ↓** dan buka **Halaman verifikasi ↗**. Hash di halaman itu sama dengan hash file yang diunduh. Nomor vouchernya memakai kode klien, misalnya `SHB-00001-10-2026`. Cetak voucher final, lalu PIC, Finance, dan manajer keuangan tanda tangan basah di tiga kotaknya.
+8. Sesudah manajer keuangan menyetujui, pilih **Unduh voucher final ↓** dan buka **Halaman verifikasi ↗**. Hash di halaman itu sama dengan hash file yang diunduh. Nomor vouchernya memakai kode klien, misalnya `SHB-00001-10-2026`. Voucher v8 memiliki dua kotak tanda tangan basah untuk PIC dan vendor penerima pembayaran. Finance dan Manajer Keuangan menyetujui di aplikasi.
 9. Untuk uji revisi, kembalikan dari akun manajer keuangan. Finance mengoreksi atau menyetujui ulang versi salinannya, lalu nomor voucher baru terbit.
 
-Voucher lama berformat v1 sampai v3 tidak punya kotak manajer keuangan. Manajer keuangan hanya bisa mengembalikannya, lalu Finance menyetujui ulang dengan format v7.
+Voucher lama berformat v1 sampai v3 tidak punya kotak manajer keuangan. Untuk dokumen lama yang tidak didukung alur persetujuan saat ini, gunakan pengembalian dan persetujuan ulang; dokumen baru memakai v8.
 
-Jika contoh sudah disetujui, buka hasil tersimpan; jangan membuat dataset/ledger baru hanya untuk mengulang demo. Tiga contoh pada klien yang sama memakai identitas invoice yang sama dan sengaja terdeteksi sebagai kandidat duplikat. PT Arunika Sejahtera dan PT Bumi Persada sudah berisi contoh, jadi contoh baru di sana ditandai sebagai kandidat duplikat. Pakai satu contoh per klien yang masih kosong.
+Jika contoh sudah disetujui, buka hasil tersimpan; jangan membuat dataset/ledger baru hanya untuk mengulang demo. Tiga contoh pada klien yang sama memakai identitas invoice yang sama dan sengaja terdeteksi sebagai kandidat duplikat. Database demo yang pernah dipakai dapat sudah berisi contoh pada klien tertentu; contoh baru dengan identitas sama dapat ditandai sebagai kandidat duplikat. Pakai satu contoh per klien yang masih kosong.
 
 ## Ketahanan voucher
 

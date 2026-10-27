@@ -36,27 +36,42 @@ Next's SWC compiler ships as a prebuilt optional dependency.
 
 ## Before you start
 
-1. Start the FastAPI app first. It must listen on `http://127.0.0.1:8787`.
-   From the project root, run `.\app\start.ps1`. Details are in `../app/README.md`.
-2. Log in on the main app with the same host name you will use for this app. The session
-   cookie is scoped by host, not by port: log in at `127.0.0.1:8787` to use
-   `127.0.0.1:3000`, or at `localhost:8787` to use `localhost:3000`. Every link back to
-   the main app keeps the host of the page you are on.
+Follow the [instructor local setup](../README.md#jalankan-lokal-untuk-penilaian) from the repository root.
+It prepares the database and starts FastAPI with `.\.venv\Scripts\python.exe -B -m app.run`, without a PowerShell script.
+The backend must listen on `http://127.0.0.1:8787`; keep its terminal open.
 
 ## Run
 
-```bash
-npm install
-npm run build
-npm run start
+Open a second terminal **at the root of the same cloned repository**, then run:
+
+```powershell
+cd web
+npm.cmd ci
+npm.cmd run build
+npm.cmd run start
 ```
 
-Then open `http://127.0.0.1:3000/`.
+Open **http://127.0.0.1:3000/** after Next.js reports `Ready`.
+Log in through `/review` on this same origin. The generated local accounts and password are in `.appdata/demo-access.txt` at the repository root.
+For the no-API assessment, open **http://127.0.0.1:3000/review** and use the saved example buttons.
+Uploading a new file on `/unggah` requires a configured live extraction provider.
 
-For development with hot reload, use `npm run dev` on the same address.
+From another terminal, verify the frontend proxy as well as the backend:
 
-To keep Next.js from sending anonymous telemetry, set `NEXT_TELEMETRY_DISABLED=1`
-in the shell before running these commands.
+```powershell
+Invoke-RestMethod http://127.0.0.1:8787/api/v1/health
+Invoke-RestMethod http://127.0.0.1:3000/api/v1/health
+```
+
+Both must return `status = ok` and `worker_ready = True` before starting the demo.
+The browser uses port 3000; port 8787 is the backend. Keep one hostname throughout a session.
+Do not copy `web/.env.example` to a local frontend env file: it contains deployment-only HTTPS placeholders.
+
+For development with hot reload, use `npm.cmd run dev` on the same address.
+Before rebuilding, stop your own frontend with Ctrl+C; do not rebuild `.next` while `next start` is serving it.
+
+To keep Next.js from sending anonymous telemetry, set `NEXT_TELEMETRY_DISABLED=1` in the process environment before starting it.
+For Docker, busy ports, login, and provider errors, use the [local troubleshooting guide](../README.md#troubleshooting-lokal).
 
 ## How it talks to the backend
 
